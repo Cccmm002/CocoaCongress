@@ -21,14 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let nvc: UINavigationController = UINavigationController(rootViewController: legislatorTabBarController)
         
-        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+        //UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
         
+        leftMenuViewController.legislatorTabBarController = nvc
         
+        let slideMenuController = ExSlideMenuController(mainViewController: nvc, leftMenuViewController: leftMenuViewController)
+        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        self.window?.rootViewController = slideMenuController
+        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+        self.window?.makeKeyAndVisible()
     }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.createMenuView()
         return true
     }
 

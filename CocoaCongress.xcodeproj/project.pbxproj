@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B56B600893DC7144BE0E6A48 /* Pods_CocoaCongress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */; };
+		DE0E303A1DD96FA500427054 /* ComTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E30391DD96FA500427054 /* ComTabBarController.swift */; };
+		DE0E303C1DD9701200427054 /* FavTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303B1DD9701200427054 /* FavTabBarController.swift */; };
+		DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303D1DD9725300427054 /* AboutViewController.swift */; };
+		DE0E30401DD97E9A00427054 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303F1DD97E9A00427054 /* ExSlideMenuController.swift */; };
 		DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */; };
 		DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */; };
 		DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */; };
@@ -25,6 +29,7 @@
 		DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD45C1DD93B6500402FD3 /* UITableView.swift */; };
 		DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */; };
 		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
+		DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4631DD9463D00402FD3 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,10 @@
 		08B3074B0B0A0DCECB174696 /* Pods-CocoaCongress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaCongress.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress.release.xcconfig"; sourceTree = "<group>"; };
 		96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaCongress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A92E67A7F7B0E4873FFA9D /* Pods-CocoaCongress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaCongress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress.debug.xcconfig"; sourceTree = "<group>"; };
+		DE0E30391DD96FA500427054 /* ComTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComTabBarController.swift; sourceTree = "<group>"; };
+		DE0E303B1DD9701200427054 /* FavTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTabBarController.swift; sourceTree = "<group>"; };
+		DE0E303D1DD9725300427054 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DE0E303F1DD97E9A00427054 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		DE3BD4181DD8EAC600402FD3 /* CocoaCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE3BD4201DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 		DE3BD45C1DD93B6500402FD3 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
 		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		DE3BD4631DD9463D00402FD3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,10 @@
 				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
 				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
 				DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */,
+				DE0E30391DD96FA500427054 /* ComTabBarController.swift */,
+				DE0E303B1DD9701200427054 /* FavTabBarController.swift */,
+				DE0E303D1DD9725300427054 /* AboutViewController.swift */,
+				DE0E303F1DD97E9A00427054 /* ExSlideMenuController.swift */,
 			);
 			path = CocoaCongress;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 				DE3BD4581DD937C300402FD3 /* UIViewController.swift */,
 				DE3BD45A1DD937EC00402FD3 /* UIApplication.swift */,
 				DE3BD45C1DD93B6500402FD3 /* UITableView.swift */,
+				DE3BD4631DD9463D00402FD3 /* UIView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -385,14 +400,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3BD45B1DD937EC00402FD3 /* UIApplication.swift in Sources */,
+				DE0E303C1DD9701200427054 /* FavTabBarController.swift in Sources */,
 				DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */,
+				DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */,
 				DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */,
 				DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */,
+				DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */,
 				DE3BD44C1DD92CC800402FD3 /* LeftMenuViewController.swift in Sources */,
+				DE0E303A1DD96FA500427054 /* ComTabBarController.swift in Sources */,
 				DE3BD4571DD9375100402FD3 /* String.swift in Sources */,
 				DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */,
 				DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */,
 				DE3BD4591DD937C300402FD3 /* UIViewController.swift in Sources */,
+				DE0E30401DD97E9A00427054 /* ExSlideMenuController.swift in Sources */,
 				DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */,
 				DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */,
 			);

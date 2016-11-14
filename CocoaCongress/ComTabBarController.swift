@@ -1,5 +1,5 @@
 //
-//  LegislatorTabBarController.swift
+//  ComTabBarController.swift
 //  CocoaCongress
 //
 //  Created by Cccmm002 on 11/13/16.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class LegislatorTabBarController: UITabBarController {
+class ComTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title="Legislators"
-
+        self.navigationItem.title="Committees"
         // Do any additional setup after loading the view.
     }
 
