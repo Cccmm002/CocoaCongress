@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56B600893DC7144BE0E6A48 /* Pods_CocoaCongress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */; };
 		DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */; };
-		DE3BD41E1DD8EAC600402FD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41D1DD8EAC600402FD3 /* ViewController.swift */; };
 		DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */; };
 		DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */; };
 		DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4241DD8EAC600402FD3 /* LaunchScreen.storyboard */; };
 		DE3BD4311DD8EAC600402FD3 /* CocoaCongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4301DD8EAC600402FD3 /* CocoaCongressTests.swift */; };
 		DE3BD43C1DD8EAC600402FD3 /* CocoaCongressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD43B1DD8EAC600402FD3 /* CocoaCongressUITests.swift */; };
+		DE3BD44C1DD92CC800402FD3 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD44B1DD92CC800402FD3 /* LeftMenuViewController.swift */; };
+		DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */; };
+		DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */; };
+		DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */; };
+		DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4541DD9371700402FD3 /* UIColor.swift */; };
+		DE3BD4571DD9375100402FD3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4561DD9375100402FD3 /* String.swift */; };
+		DE3BD4591DD937C300402FD3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4581DD937C300402FD3 /* UIViewController.swift */; };
+		DE3BD45B1DD937EC00402FD3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD45A1DD937EC00402FD3 /* UIApplication.swift */; };
+		DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD45C1DD93B6500402FD3 /* UITableView.swift */; };
+		DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */; };
+		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08B3074B0B0A0DCECB174696 /* Pods-CocoaCongress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaCongress.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress.release.xcconfig"; sourceTree = "<group>"; };
+		96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaCongress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A92E67A7F7B0E4873FFA9D /* Pods-CocoaCongress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaCongress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress.debug.xcconfig"; sourceTree = "<group>"; };
 		DE3BD4181DD8EAC600402FD3 /* CocoaCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE3BD41D1DD8EAC600402FD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DE3BD4201DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE3BD4251DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +60,17 @@
 		DE3BD4371DD8EAC600402FD3 /* CocoaCongressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaCongressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD43B1DD8EAC600402FD3 /* CocoaCongressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaCongressUITests.swift; sourceTree = "<group>"; };
 		DE3BD43D1DD8EAC600402FD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE3BD44B1DD92CC800402FD3 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegislatorTabBarController.swift; sourceTree = "<group>"; };
+		DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegStateViewController.swift; sourceTree = "<group>"; };
+		DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillTabBarController.swift; sourceTree = "<group>"; };
+		DE3BD4541DD9371700402FD3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DE3BD4561DD9375100402FD3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DE3BD4581DD937C300402FD3 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		DE3BD45A1DD937EC00402FD3 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		DE3BD45C1DD93B6500402FD3 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
+		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56B600893DC7144BE0E6A48 /* Pods_CocoaCongress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +99,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BC626F5EA0A184F0845A2DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6A92E67A7F7B0E4873FFA9D /* Pods-CocoaCongress.debug.xcconfig */,
+				08B3074B0B0A0DCECB174696 /* Pods-CocoaCongress.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1FD69F89B4456BA5E35BA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DE3BD40F1DD8EAC600402FD3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +123,8 @@
 				DE3BD42F1DD8EAC600402FD3 /* CocoaCongressTests */,
 				DE3BD43A1DD8EAC600402FD3 /* CocoaCongressUITests */,
 				DE3BD4191DD8EAC600402FD3 /* Products */,
+				8BC626F5EA0A184F0845A2DD /* Pods */,
+				CF1FD69F89B4456BA5E35BA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +141,17 @@
 		DE3BD41A1DD8EAC600402FD3 /* CocoaCongress */ = {
 			isa = PBXGroup;
 			children = (
+				DE3BD45E1DD93EC200402FD3 /* MiniViews */,
+				DE3BD4531DD936F100402FD3 /* Extensions */,
 				DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */,
-				DE3BD41D1DD8EAC600402FD3 /* ViewController.swift */,
 				DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */,
 				DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */,
 				DE3BD4241DD8EAC600402FD3 /* LaunchScreen.storyboard */,
 				DE3BD4271DD8EAC600402FD3 /* Info.plist */,
+				DE3BD44B1DD92CC800402FD3 /* LeftMenuViewController.swift */,
+				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
+				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
+				DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */,
 			);
 			path = CocoaCongress;
 			sourceTree = "<group>";
@@ -125,6 +174,27 @@
 			path = CocoaCongressUITests;
 			sourceTree = "<group>";
 		};
+		DE3BD4531DD936F100402FD3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BD4541DD9371700402FD3 /* UIColor.swift */,
+				DE3BD4561DD9375100402FD3 /* String.swift */,
+				DE3BD4581DD937C300402FD3 /* UIViewController.swift */,
+				DE3BD45A1DD937EC00402FD3 /* UIApplication.swift */,
+				DE3BD45C1DD93B6500402FD3 /* UITableView.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		DE3BD45E1DD93EC200402FD3 /* MiniViews */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */,
+				DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */,
+			);
+			name = MiniViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE3BD4401DD8EAC600402FD3 /* Build configuration list for PBXNativeTarget "CocoaCongress" */;
 			buildPhases = (
+				98558E3977B1E2245C4FA54B /* [CP] Check Pods Manifest.lock */,
 				DE3BD4141DD8EAC600402FD3 /* Sources */,
 				DE3BD4151DD8EAC600402FD3 /* Frameworks */,
 				DE3BD4161DD8EAC600402FD3 /* Resources */,
+				970E3610D23CD04E6AC67E83 /* [CP] Embed Pods Frameworks */,
+				44F832A196DEA6AE5AE1705F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */,
 				DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */,
 				DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */,
 				DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */,
@@ -257,13 +331,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44F832A196DEA6AE5AE1705F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		970E3610D23CD04E6AC67E83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CocoaCongress/Pods-CocoaCongress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98558E3977B1E2245C4FA54B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE3BD4141DD8EAC600402FD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE3BD41E1DD8EAC600402FD3 /* ViewController.swift in Sources */,
+				DE3BD45B1DD937EC00402FD3 /* UIApplication.swift in Sources */,
+				DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */,
+				DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */,
 				DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */,
+				DE3BD44C1DD92CC800402FD3 /* LeftMenuViewController.swift in Sources */,
+				DE3BD4571DD9375100402FD3 /* String.swift in Sources */,
+				DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */,
+				DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */,
+				DE3BD4591DD937C300402FD3 /* UIViewController.swift in Sources */,
+				DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */,
+				DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +542,7 @@
 		};
 		DE3BD4411DD8EAC600402FD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6A92E67A7F7B0E4873FFA9D /* Pods-CocoaCongress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GBQ5TPLP6V;
@@ -424,6 +556,7 @@
 		};
 		DE3BD4421DD8EAC600402FD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08B3074B0B0A0DCECB174696 /* Pods-CocoaCongress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GBQ5TPLP6V;
@@ -512,6 +645,7 @@
 				DE3BD4421DD8EAC600402FD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE3BD4431DD8EAC600402FD3 /* Build configuration list for PBXNativeTarget "CocoaCongressTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +654,7 @@
 				DE3BD4451DD8EAC600402FD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE3BD4461DD8EAC600402FD3 /* Build configuration list for PBXNativeTarget "CocoaCongressUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +663,7 @@
 				DE3BD4481DD8EAC600402FD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

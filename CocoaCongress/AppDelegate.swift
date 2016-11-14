@@ -12,6 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    fileprivate func createMenuView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let legislatorTabBarController = storyboard.instantiateViewController(withIdentifier: "LegislatorTabBarController") as! LegislatorTabBarController
+        let leftMenuViewController = storyboard.instantiateViewController(withIdentifier: "LeftMenuViewController") as! LeftMenuViewController
+
+        let nvc: UINavigationController = UINavigationController(rootViewController: legislatorTabBarController)
+        
+        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+        
+        
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
