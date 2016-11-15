@@ -32,6 +32,7 @@
 		DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */; };
 		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
 		DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4631DD9463D00402FD3 /* UIView.swift */; };
+		DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
 		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		DE3BD4631DD9463D00402FD3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegHouseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		DE3BD41A1DD8EAC600402FD3 /* CocoaCongress */ = {
 			isa = PBXGroup;
 			children = (
+				DEC64F991DDAFE2D001B8B9A /* LegislatorTab */,
 				DE0E30411DDA7ECE00427054 /* TableCells */,
 				DE3BD45E1DD93EC200402FD3 /* MiniViews */,
 				DE3BD4531DD936F100402FD3 /* Extensions */,
@@ -173,8 +176,6 @@
 				DE3BD4241DD8EAC600402FD3 /* LaunchScreen.storyboard */,
 				DE3BD4271DD8EAC600402FD3 /* Info.plist */,
 				DE3BD44B1DD92CC800402FD3 /* LeftMenuViewController.swift */,
-				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
-				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
 				DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */,
 				DE0E30391DD96FA500427054 /* ComTabBarController.swift */,
 				DE0E303B1DD9701200427054 /* FavTabBarController.swift */,
@@ -222,6 +223,16 @@
 				DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */,
 			);
 			name = MiniViews;
+			sourceTree = "<group>";
+		};
+		DEC64F991DDAFE2D001B8B9A /* LegislatorTab */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
+				DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */,
+				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
+			);
+			name = LegislatorTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +439,7 @@
 				DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */,
 				DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */,
 				DE3BD4591DD937C300402FD3 /* UIViewController.swift in Sources */,
+				DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */,
 				DE0E30401DD97E9A00427054 /* ExSlideMenuController.swift in Sources */,
 				DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */,
 				DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */,

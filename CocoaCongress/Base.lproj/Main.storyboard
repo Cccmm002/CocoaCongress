@@ -192,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="-20" y="1697"/>
         </scene>
-        <!--Senate-->
+        <!--House-->
         <scene sceneID="b1v-a6-6JE">
             <objects>
                 <viewController id="gS2-yB-xO8" sceneMemberID="viewController">
@@ -205,11 +205,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Senate" id="FqB-dL-ik1"/>
+                    <tabBarItem key="tabBarItem" title="House" id="FqB-dL-ik1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwh-Gu-kqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="414"/>
+            <point key="canvasLocation" x="1036" y="414"/>
         </scene>
         <!--Bill Tab Bar Controller-->
         <scene sceneID="kb7-Em-oS3">
@@ -229,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="-25" y="743"/>
         </scene>
-        <!--Senate-->
+        <!--House-->
         <scene sceneID="bmk-OH-TEq">
             <objects>
-                <viewController id="xC8-zj-He9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LegHouseViewController" id="xC8-zj-He9" customClass="LegHouseViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PMa-Xe-S3f"/>
                         <viewControllerLayoutGuide type="bottom" id="a7E-XF-TCD"/>
@@ -240,13 +240,32 @@
                     <view key="view" contentMode="scaleToFill" id="Qe5-ao-3Fa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ0-6c-Hd0">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xC8-zj-He9" id="isv-Km-K0j"/>
+                                    <outlet property="delegate" destination="xC8-zj-He9" id="XSg-Ux-lLz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZQ0-6c-Hd0" firstAttribute="leading" secondItem="Qe5-ao-3Fa" secondAttribute="leading" id="DGU-k6-uP7"/>
+                            <constraint firstAttribute="trailing" secondItem="ZQ0-6c-Hd0" secondAttribute="trailing" id="FNr-iy-OVj"/>
+                            <constraint firstItem="ZQ0-6c-Hd0" firstAttribute="top" secondItem="Qe5-ao-3Fa" secondAttribute="top" id="ZF1-p1-Ryi"/>
+                            <constraint firstItem="ZQ0-6c-Hd0" firstAttribute="bottom" secondItem="a7E-XF-TCD" secondAttribute="top" id="hvo-NA-ax4"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Senate" id="juh-Kz-Fko"/>
+                    <tabBarItem key="tabBarItem" title="House" id="juh-Kz-Fko"/>
+                    <connections>
+                        <outlet property="table" destination="ZQ0-6c-Hd0" id="JV5-2B-bJX"/>
+                        <outlet property="view" destination="ZQ0-6c-Hd0" id="D8h-zj-iI5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgM-iw-G1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="262"/>
+            <point key="canvasLocation" x="1740" y="138.98050974512745"/>
         </scene>
         <!--State-->
         <scene sceneID="dJT-8x-C7i">
@@ -264,15 +283,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Eyg-tZ-DHd" id="fFS-0k-dN9"/>
+                                    <outlet property="delegate" destination="Eyg-tZ-DHd" id="sar-vq-bbp"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nzz-cI-l1g" secondAttribute="trailing" id="7LJ-Hs-Zl2"/>
-                            <constraint firstItem="nzz-cI-l1g" firstAttribute="leading" secondItem="LbZ-rs-dWC" secondAttribute="leading" id="QFZ-Ou-pVe"/>
-                            <constraint firstItem="H7M-Ph-wUz" firstAttribute="top" secondItem="nzz-cI-l1g" secondAttribute="bottom" id="TSD-ZW-JkL"/>
-                            <constraint firstItem="nzz-cI-l1g" firstAttribute="top" secondItem="DB7-Vf-Dlu" secondAttribute="bottom" id="lSK-v4-Myx"/>
+                            <constraint firstItem="nzz-cI-l1g" firstAttribute="leading" secondItem="LbZ-rs-dWC" secondAttribute="leading" id="3cc-1w-mLD"/>
+                            <constraint firstAttribute="trailing" secondItem="nzz-cI-l1g" secondAttribute="trailing" id="EZ5-xC-szZ"/>
+                            <constraint firstItem="nzz-cI-l1g" firstAttribute="bottom" secondItem="H7M-Ph-wUz" secondAttribute="top" id="KCs-SK-H6p"/>
+                            <constraint firstItem="nzz-cI-l1g" firstAttribute="top" secondItem="LbZ-rs-dWC" secondAttribute="top" id="bdN-2X-Q0I"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="State" id="KeP-Ll-isL"/>
