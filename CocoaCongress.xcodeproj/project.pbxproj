@@ -35,6 +35,7 @@
 		DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */; };
 		DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */; };
 		DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */; };
+		DEC64FA01DDBA864001B8B9A /* StatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9F1DDBA864001B8B9A /* StatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegHouseViewController.swift; sourceTree = "<group>"; };
 		DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LegisSubViews.storyboard; sourceTree = "<group>"; };
 		DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailViewController.swift; sourceTree = "<group>"; };
+		DEC64F9F1DDBA864001B8B9A /* StatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 			children = (
 				DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */,
 				DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */,
+				DEC64F9F1DDBA864001B8B9A /* StatePickerViewController.swift */,
 			);
 			name = SubViews;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				DE0E303C1DD9701200427054 /* FavTabBarController.swift in Sources */,
 				DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */,
 				DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */,
+				DEC64FA01DDBA864001B8B9A /* StatePickerViewController.swift in Sources */,
 				DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */,
 				DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */,
 				DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */,

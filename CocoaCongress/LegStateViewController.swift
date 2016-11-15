@@ -16,6 +16,7 @@ class LegStateViewController: UIViewController {
     var json : JSON = nil
     var dic : [String:[LegisTableData]] = [:]
     var dic_keys : [String] = []
+    var state_list: [String] = []
     
     var tabController : LegislatorTabBarController? = nil
     var rightButton: UIBarButtonItem? = nil
@@ -33,7 +34,10 @@ class LegStateViewController: UIViewController {
     }
     
     func onFilterClick() {
-        
+        let storyboard = UIStoryboard(name: "LegisSubViews", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewController(withIdentifier: "StatePickerViewController") as! StatePickerViewController
+        subContentsVC.states = self.state_list
+        self.navigationController?.pushViewController(subContentsVC, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,16 +55,25 @@ class LegStateViewController: UIViewController {
         if json == nil {
             SwiftSpinner.show("Fetching data...")
         
-            let url: String = Constants.Host/* + "?database=legislators"*/
+            let url: String = Constants.Host
+            
+            Alamofire.request(url, method: .get, parameters: ["database":"states"]).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let jstates = JSON(value)
+                    self.state_list = jstates.arrayValue.map { $0.string! }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
             Alamofire.request(url, method: .get, parameters: ["database":"legislators"]).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     self.json = JSON(value)
-                    print("Information of legislators fetched successfully!")
                     self.buildDic()
                     self.table.reloadData()
                 case .failure(let error):
-                    print("Information of legislators failed!!!")
                     print(error)
                 }
                 SwiftSpinner.hide()
@@ -107,12 +120,10 @@ extension LegStateViewController : UITableViewDelegate {
 extension LegStateViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.json == nil {
-            print("Section number " + String(section) + ": 0")
             return 0
         }
         else {
             let v : Int = (self.dic[self.dic_keys[section]]?.count)!
-            print("Section number " + String(section) + ": " + String(v))
             return v
         }
     }
@@ -127,11 +138,9 @@ extension LegStateViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.json == nil {
-            print("Current section number: 0")
             return 0
         }
         else {
-            print("Current section number: " + String(self.dic_keys.count))
             return self.dic_keys.count
         }
     }
@@ -141,7 +150,6 @@ extension LegStateViewController: UITableViewDataSource {
             return []
         }
         else {
-            print("Get all section titles")
             return self.dic_keys
         }
     }
@@ -151,7 +159,6 @@ extension LegStateViewController: UITableViewDataSource {
             return ""
         }
         else {
-            print("Get section title: " + self.dic_keys[section])
             return self.dic_keys[section]
         }
     }
