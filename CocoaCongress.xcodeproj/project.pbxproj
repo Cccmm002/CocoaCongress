@@ -33,6 +33,8 @@
 		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
 		DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4631DD9463D00402FD3 /* UIView.swift */; };
 		DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */; };
+		DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */; };
+		DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		DE3BD4631DD9463D00402FD3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegHouseViewController.swift; sourceTree = "<group>"; };
+		DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LegisSubViews.storyboard; sourceTree = "<group>"; };
+		DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,11 +232,21 @@
 		DEC64F991DDAFE2D001B8B9A /* LegislatorTab */ = {
 			isa = PBXGroup;
 			children = (
+				DEC64F9A1DDBA262001B8B9A /* SubViews */,
 				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
 				DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */,
 				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
 			);
 			name = LegislatorTab;
+			sourceTree = "<group>";
+		};
+		DEC64F9A1DDBA262001B8B9A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */,
+				DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */,
+			);
+			name = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +365,7 @@
 				DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */,
 				DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */,
 				DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */,
+				DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */,
 				DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */,
 				DE0E30471DDA805900427054 /* LegisTableViewCell.xib in Resources */,
 			);
@@ -437,6 +452,7 @@
 				DE0E303A1DD96FA500427054 /* ComTabBarController.swift in Sources */,
 				DE3BD4571DD9375100402FD3 /* String.swift in Sources */,
 				DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */,
+				DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */,
 				DE3BD45D1DD93B6500402FD3 /* UITableView.swift in Sources */,
 				DE3BD4591DD937C300402FD3 /* UIViewController.swift in Sources */,
 				DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */,

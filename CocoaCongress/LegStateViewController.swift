@@ -17,20 +17,29 @@ class LegStateViewController: UIViewController {
     var dic : [String:[LegisTableData]] = [:]
     var dic_keys : [String] = []
     
+    var tabController : LegislatorTabBarController? = nil
+    var rightButton: UIBarButtonItem? = nil
+    
     @IBOutlet var table: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.table.delegate = self
-        
         self.table.registerCellNib(LegisTableViewCell.self)
+        
+        rightButton = UIBarButtonItem(title: "Filter", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.onFilterClick))
 
         loadLegisData()
     }
     
+    func onFilterClick() {
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabController!.navigationItem.title = "Legislators"
+        tabController!.navigationItem.rightBarButtonItem = self.rightButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,7 +98,9 @@ extension LegStateViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard = UIStoryboard(name: "LegisSubViews", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewController(withIdentifier: "LegisDetailViewController") as! LegisDetailViewController
+        self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
 }
 

@@ -13,6 +13,11 @@ class LegislatorTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Legislators"
+        
+        let stateView = self.viewControllers?[0] as! LegStateViewController
+        let houseView = self.viewControllers?[1] as! LegHouseViewController
+        stateView.tabController = self
+        houseView.tabController = self
     }
 
     override func didReceiveMemoryWarning() {
