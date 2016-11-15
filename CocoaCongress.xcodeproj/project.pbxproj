@@ -12,6 +12,8 @@
 		DE0E303C1DD9701200427054 /* FavTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303B1DD9701200427054 /* FavTabBarController.swift */; };
 		DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303D1DD9725300427054 /* AboutViewController.swift */; };
 		DE0E30401DD97E9A00427054 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E303F1DD97E9A00427054 /* ExSlideMenuController.swift */; };
+		DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E30441DDA805900427054 /* LegisTableViewCell.swift */; };
+		DE0E30471DDA805900427054 /* LegisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0E30451DDA805900427054 /* LegisTableViewCell.xib */; };
 		DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */; };
 		DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */; };
 		DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		DE0E303B1DD9701200427054 /* FavTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavTabBarController.swift; sourceTree = "<group>"; };
 		DE0E303D1DD9725300427054 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DE0E303F1DD97E9A00427054 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
+		DE0E30441DDA805900427054 /* LegisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisTableViewCell.swift; sourceTree = "<group>"; };
+		DE0E30451DDA805900427054 /* LegisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisTableViewCell.xib; sourceTree = "<group>"; };
 		DE3BD4181DD8EAC600402FD3 /* CocoaCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE3BD4201DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE0E30411DDA7ECE00427054 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				DE0E30441DDA805900427054 /* LegisTableViewCell.swift */,
+				DE0E30451DDA805900427054 /* LegisTableViewCell.xib */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
 		DE3BD40F1DD8EAC600402FD3 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +164,7 @@
 		DE3BD41A1DD8EAC600402FD3 /* CocoaCongress */ = {
 			isa = PBXGroup;
 			children = (
+				DE0E30411DDA7ECE00427054 /* TableCells */,
 				DE3BD45E1DD93EC200402FD3 /* MiniViews */,
 				DE3BD4531DD936F100402FD3 /* Extensions */,
 				DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */,
@@ -327,6 +341,7 @@
 				DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */,
 				DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */,
 				DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */,
+				DE0E30471DDA805900427054 /* LegisTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +419,7 @@
 				DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */,
 				DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */,
 				DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */,
+				DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */,
 				DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */,
 				DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */,
 				DE3BD44C1DD92CC800402FD3 /* LeftMenuViewController.swift in Sources */,

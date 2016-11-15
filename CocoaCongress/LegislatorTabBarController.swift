@@ -12,9 +12,7 @@ class LegislatorTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title="Legislators"
-
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "Legislators"
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,16 +24,5 @@ class LegislatorTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

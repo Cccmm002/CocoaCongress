@@ -259,13 +259,31 @@
                     <view key="view" contentMode="scaleToFill" id="LbZ-rs-dWC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nzz-cI-l1g">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eyg-tZ-DHd" id="fFS-0k-dN9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nzz-cI-l1g" secondAttribute="trailing" id="7LJ-Hs-Zl2"/>
+                            <constraint firstItem="nzz-cI-l1g" firstAttribute="leading" secondItem="LbZ-rs-dWC" secondAttribute="leading" id="QFZ-Ou-pVe"/>
+                            <constraint firstItem="H7M-Ph-wUz" firstAttribute="top" secondItem="nzz-cI-l1g" secondAttribute="bottom" id="TSD-ZW-JkL"/>
+                            <constraint firstItem="nzz-cI-l1g" firstAttribute="top" secondItem="DB7-Vf-Dlu" secondAttribute="bottom" id="lSK-v4-Myx"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="State" id="KeP-Ll-isL"/>
+                    <connections>
+                        <outlet property="table" destination="nzz-cI-l1g" id="nNL-Um-k4s"/>
+                        <outlet property="view" destination="nzz-cI-l1g" id="NqZ-I7-euh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLg-IW-4Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="-293"/>
+            <point key="canvasLocation" x="984.79999999999995" y="-293.70314842578711"/>
         </scene>
         <!--Legislator Tab Bar Controller-->
         <scene sceneID="c0a-8e-IwL">

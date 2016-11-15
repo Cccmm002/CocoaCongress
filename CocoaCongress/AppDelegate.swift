@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct Constants {
+    static let Host : String = "http://lowcost-env.mmist7h7sn.us-west-1.elasticbeanstalk.com/Congress/CongressWeb/congressRequest.php"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
