@@ -11,14 +11,11 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 
-class LegStateViewController: UIViewController {
+class LegStateViewController: UIViewController, LegislatorTabs {
     
-    var json : JSON = nil
-    var dataSet : [LegisTableData] = []
     var filteredData : [LegisTableData] = []
     var dic : [String:[LegisTableData]] = [:]
     var dic_keys : [String] = []
-    var state_list: [String] = []
     var current_state : Int = 0
     
     var tabController : LegislatorTabBarController? = nil
@@ -33,20 +30,25 @@ class LegStateViewController: UIViewController {
         
         self.rightButton = UIBarButtonItem(title: "Filter", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.onFilterClick))
 
-        loadLegisData()
+        if !Constants.data.existLegisData() {
+            Constants.data.loadLegisData(view: self)
+        }
+        else {
+            resetData()
+        }
     }
     
     func onFilterClick() {
         let storyboard = UIStoryboard(name: "LegisSubViews", bundle: nil)
         let subContentsVC = storyboard.instantiateViewController(withIdentifier: "StatePickerViewController") as! StatePickerViewController
-        subContentsVC.states = self.state_list
+        subContentsVC.states = Constants.data.state_list
         subContentsVC.stateView = self
         subContentsVC.current_state = self.current_state
         self.navigationController?.pushViewController(subContentsVC, animated: false)
     }
     
-    func clearFilterContent() {
-        self.filteredData = self.dataSet
+    func resetData() {
+        self.filteredData = Constants.data.legisData
         buildDic()
         self.current_state = 0
         self.table.reloadData()
@@ -61,55 +63,6 @@ class LegStateViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func loadLegisData() {
-        if json == nil {
-            SwiftSpinner.show("Fetching data...")
-        
-            let url: String = Constants.Host
-            
-            Alamofire.request(url, method: .get, parameters: ["database":"states"]).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let jstates = JSON(value)
-                    self.state_list = jstates.arrayValue.map { $0.string! }
-                    self.state_list.insert("All States", at: 0)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-            
-            Alamofire.request(url, method: .get, parameters: ["database":"legislators"]).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    self.json = JSON(value)
-                    self.buildData()
-                    self.filteredData = self.dataSet
-                    self.buildDic()
-                    self.table.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-                SwiftSpinner.hide()
-            }
-        }
-        else {
-            self.table.reloadData()
-        }
-    }
-    
-    func buildData() {
-        self.dataSet = []
-        let count = self.json["count"].int!
-        for i in 0 ..< count {
-            let state = self.json["results"][i]["state_name"].string!
-            let fname = self.json["results"][i]["first_name"].string!
-            let lname = self.json["results"][i]["last_name"].string!
-            let id = self.json["results"][i]["bioguide_id"].string!
-            let data = LegisTableData(id:id, fname:fname, lname:lname, state:state)
-            self.dataSet.append(data)
-        }
     }
     
     func buildDic() {
@@ -144,7 +97,7 @@ extension LegStateViewController : UITableViewDelegate {
 
 extension LegStateViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.json == nil {
+        if !Constants.data.existLegisData() {
             return 0
         }
         else {
@@ -154,7 +107,6 @@ extension LegStateViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Cell: section: " + String(indexPath.section) + " row: " + String(indexPath.row))
         let cell = tableView.dequeueReusableCell(withIdentifier: LegisTableViewCell.identifier, for: indexPath) as! LegisTableViewCell
         let data = self.dic[self.dic_keys[indexPath.section]]?[indexPath.row]
         cell.setData(data)
@@ -162,7 +114,7 @@ extension LegStateViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.json == nil {
+        if !Constants.data.existLegisData() {
             return 0
         }
         else {
@@ -171,7 +123,7 @@ extension LegStateViewController: UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if self.json == nil {
+        if !Constants.data.existLegisData() {
             return []
         }
         else {
@@ -180,7 +132,7 @@ extension LegStateViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if self.json == nil {
+        if !Constants.data.existLegisData() {
             return ""
         }
         else {

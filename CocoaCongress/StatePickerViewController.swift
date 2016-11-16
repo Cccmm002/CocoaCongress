@@ -13,6 +13,7 @@ class StatePickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     var states: [String] = []
     var stateView : LegStateViewController? = nil
     var current_state : Int = 0
+    var leftButton : UIBarButtonItem = UIBarButtonItem()
     var rightButton : UIBarButtonItem = UIBarButtonItem()
     
     @IBOutlet var picker: UIPickerView!
@@ -24,18 +25,23 @@ class StatePickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         self.rightButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.done))
         self.navigationItem.rightBarButtonItem = self.rightButton
-        self.navigationItem.leftBarButtonItem = nil
+        self.leftButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.doNothing))
+        self.navigationItem.leftBarButtonItem = self.leftButton
 
         // Do any additional setup after loading the view.
     }
     
+    func doNothing() {
+        //Do Nothing
+    }
+    
     func done() {
         if self.current_state == 0 {
-            self.stateView?.clearFilterContent()
+            self.stateView?.resetData()
         }
         else {
             let filterText = states[self.current_state]
-            self.stateView?.filteredData = (stateView?.dataSet.filter{ $0.state == filterText })!
+            self.stateView?.filteredData = (Constants.data.legisData.filter{ $0.state == filterText })
             self.stateView?.buildDic()
             self.stateView?.table.reloadData()
         }

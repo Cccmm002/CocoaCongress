@@ -11,17 +11,19 @@ import UIKit
 struct LegisTableData {
     
     var id: String
+    var chamber: String
     var first_name: String
     var last_name: String
     var state: String
     var image: UIImage?
     
-    init(id: String, fname: String, lname: String, state: String) {
+    init(id: String, fname: String, lname: String, state: String, chamber: String) {
         self.id=id
         self.first_name=fname
         self.last_name=lname
         self.state=state
         self.image=nil
+        self.chamber=chamber
     }
 
 }

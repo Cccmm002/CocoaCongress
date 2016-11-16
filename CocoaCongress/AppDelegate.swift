@@ -11,6 +11,7 @@ import UIKit
 struct Constants {
     static let Host : String = "http://lowcost-env.mmist7h7sn.us-west-1.elasticbeanstalk.com/Congress/CongressWeb/congressRequest.php"
     static let LegImgServer : String = "https://theunitedstates.io/images/congress/original/"
+    static let data : AppData = AppData()
 }
 
 @UIApplicationMain

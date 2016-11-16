@@ -31,3 +31,7 @@ class LegislatorTabBarController: UITabBarController {
     }
 
 }
+
+protocol LegislatorTabs {
+    func resetData()
+}
