@@ -35,6 +35,7 @@
 		DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */; };
 		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
 		DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4631DD9463D00402FD3 /* UIView.swift */; };
+		DE8E0A441DDCDEBA001356D0 /* LegSenateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E0A431DDCDEBA001356D0 /* LegSenateViewController.swift */; };
 		DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */; };
 		DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */; };
 		DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */; };
@@ -95,6 +96,7 @@
 		DE3BD45F1DD93EE600402FD3 /* MenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
 		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		DE3BD4631DD9463D00402FD3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		DE8E0A431DDCDEBA001356D0 /* LegSenateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegSenateViewController.swift; sourceTree = "<group>"; };
 		DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegHouseViewController.swift; sourceTree = "<group>"; };
 		DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LegisSubViews.storyboard; sourceTree = "<group>"; };
 		DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				DE3BD44F1DD92DBE00402FD3 /* LegStateViewController.swift */,
 				DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */,
 				DE3BD44D1DD92D6700402FD3 /* LegislatorTabBarController.swift */,
+				DE8E0A431DDCDEBA001356D0 /* LegSenateViewController.swift */,
 			);
 			name = LegislatorTab;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8E0A441DDCDEBA001356D0 /* LegSenateViewController.swift in Sources */,
 				DE3BD45B1DD937EC00402FD3 /* UIApplication.swift in Sources */,
 				DE0E303C1DD9701200427054 /* FavTabBarController.swift in Sources */,
 				DE3BD44E1DD92D6700402FD3 /* LegislatorTabBarController.swift in Sources */,

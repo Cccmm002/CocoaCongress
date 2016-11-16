@@ -16,8 +16,22 @@ class LegislatorTabBarController: UITabBarController {
         
         let stateView = self.viewControllers?[0] as! LegStateViewController
         let houseView = self.viewControllers?[1] as! LegHouseViewController
+        let senateView = self.viewControllers?[2] as! LegSenateViewController
         stateView.tabController = self
         houseView.tabController = self
+        senateView.tabController = self
+        stateView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        houseView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        senateView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        
+        let titleFont : UIFont = UIFont.systemFont(ofSize: 20.0)
+        let attr = [NSFontAttributeName:titleFont]
+        stateView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        stateView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        houseView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        houseView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        senateView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        senateView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
     }
 
     override func didReceiveMemoryWarning() {
