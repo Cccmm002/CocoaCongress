@@ -14,9 +14,12 @@ import SwiftSpinner
 class LegStateViewController: UIViewController {
     
     var json : JSON = nil
+    var dataSet : [LegisTableData] = []
+    var filteredData : [LegisTableData] = []
     var dic : [String:[LegisTableData]] = [:]
     var dic_keys : [String] = []
     var state_list: [String] = []
+    var current_state : Int = 0
     
     var tabController : LegislatorTabBarController? = nil
     var rightButton: UIBarButtonItem? = nil
@@ -28,7 +31,7 @@ class LegStateViewController: UIViewController {
         
         self.table.registerCellNib(LegisTableViewCell.self)
         
-        rightButton = UIBarButtonItem(title: "Filter", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.onFilterClick))
+        self.rightButton = UIBarButtonItem(title: "Filter", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.onFilterClick))
 
         loadLegisData()
     }
@@ -37,7 +40,16 @@ class LegStateViewController: UIViewController {
         let storyboard = UIStoryboard(name: "LegisSubViews", bundle: nil)
         let subContentsVC = storyboard.instantiateViewController(withIdentifier: "StatePickerViewController") as! StatePickerViewController
         subContentsVC.states = self.state_list
+        subContentsVC.stateView = self
+        subContentsVC.current_state = self.current_state
         self.navigationController?.pushViewController(subContentsVC, animated: false)
+    }
+    
+    func clearFilterContent() {
+        self.filteredData = self.dataSet
+        buildDic()
+        self.current_state = 0
+        self.table.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +74,7 @@ class LegStateViewController: UIViewController {
                 case .success(let value):
                     let jstates = JSON(value)
                     self.state_list = jstates.arrayValue.map { $0.string! }
+                    self.state_list.insert("All States", at: 0)
                 case .failure(let error):
                     print(error)
                 }
@@ -71,6 +84,8 @@ class LegStateViewController: UIViewController {
                 switch response.result {
                 case .success(let value):
                     self.json = JSON(value)
+                    self.buildData()
+                    self.filteredData = self.dataSet
                     self.buildDic()
                     self.table.reloadData()
                 case .failure(let error):
@@ -84,8 +99,8 @@ class LegStateViewController: UIViewController {
         }
     }
     
-    func buildDic() {
-        self.dic = [:]
+    func buildData() {
+        self.dataSet = []
         let count = self.json["count"].int!
         for i in 0 ..< count {
             let state = self.json["results"][i]["state_name"].string!
@@ -93,6 +108,16 @@ class LegStateViewController: UIViewController {
             let lname = self.json["results"][i]["last_name"].string!
             let id = self.json["results"][i]["bioguide_id"].string!
             let data = LegisTableData(id:id, fname:fname, lname:lname, state:state)
+            self.dataSet.append(data)
+        }
+    }
+    
+    func buildDic() {
+        self.dic = [:]
+        let count = self.filteredData.count
+        for i in 0 ..< count {
+            let data = self.filteredData[i]
+            let state = data.state
             let c = String(state[state.startIndex])
             if self.dic[c] == nil {
                 self.dic[c] = [];

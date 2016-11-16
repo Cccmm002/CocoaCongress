@@ -51,6 +51,9 @@
                             <constraint firstItem="MCJ-Hz-ufI" firstAttribute="leading" secondItem="T4n-Dq-R5h" secondAttribute="leading" id="seu-LM-MLU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="MCJ-Hz-ufI" id="7st-hH-0q6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3I-gt-XpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
