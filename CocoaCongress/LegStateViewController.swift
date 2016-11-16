@@ -91,6 +91,7 @@ extension LegStateViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "LegisSubViews", bundle: nil)
         let subContentsVC = storyboard.instantiateViewController(withIdentifier: "LegisDetailViewController") as! LegisDetailViewController
+        subContentsVC.legis = self.dic[self.dic_keys[indexPath.section]]?[indexPath.row]
         self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct LegisTableData {
+class LegisTableData {
     
     var id: String
     var chamber: String
@@ -34,6 +34,8 @@ class LegisTableViewCell: UITableViewCell {
     @IBOutlet weak var dataName: UILabel!
     @IBOutlet weak var dataState: UILabel!
     
+    var legis : LegisTableData? = nil
+    
     class var identifier: String { return String.className(self) }
 
     override func awakeFromNib() {
@@ -53,6 +55,8 @@ class LegisTableViewCell: UITableViewCell {
     
     func setData(_ data: Any?) {
         if let data = data as? LegisTableData {
+            self.legis = data
+            
             self.dataName.text = data.first_name + " " + data.last_name
             self.dataState.text = data.state
             
@@ -78,11 +82,11 @@ class LegisTableViewCell: UITableViewCell {
     func downloadImage(url: URL) {
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
-            //print(response?.suggestedFilename ?? url.lastPathComponent)
             DispatchQueue.main.async() { () -> Void in
                 self.dataImage.frame = CGRect(x:0, y:0, width:42, height:50)
                 self.dataImage.contentMode = .scaleToFill
-                self.dataImage.image = UIImage(data: data)
+                self.legis!.image = UIImage(data: data)
+                self.dataImage.image = self.legis!.image
             }
         }
     }

@@ -15,6 +15,8 @@
 		DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E30441DDA805900427054 /* LegisTableViewCell.swift */; };
 		DE0E30471DDA805900427054 /* LegisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0E30451DDA805900427054 /* LegisTableViewCell.xib */; };
 		DE28DC471DDBF3F50005ABB9 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28DC461DDBF3F50005ABB9 /* AppData.swift */; };
+		DE28DC4A1DDC2B350005ABB9 /* LegisDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */; };
+		DE28DC4B1DDC2B350005ABB9 /* LegisDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */; };
 		DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */; };
 		DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */; };
 		DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		DE0E30441DDA805900427054 /* LegisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisTableViewCell.swift; sourceTree = "<group>"; };
 		DE0E30451DDA805900427054 /* LegisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisTableViewCell.xib; sourceTree = "<group>"; };
 		DE28DC461DDBF3F50005ABB9 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailTableViewCell.swift; sourceTree = "<group>"; };
+		DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisDetailTableViewCell.xib; sourceTree = "<group>"; };
 		DE3BD4181DD8EAC600402FD3 /* CocoaCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE3BD4201DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			children = (
 				DE0E30441DDA805900427054 /* LegisTableViewCell.swift */,
 				DE0E30451DDA805900427054 /* LegisTableViewCell.xib */,
+				DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */,
+				DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */,
+				DE28DC4B1DDC2B350005ABB9 /* LegisDetailTableViewCell.xib in Resources */,
 				DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */,
 				DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */,
 				DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */,
@@ -467,6 +474,7 @@
 				DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */,
 				DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */,
 				DE28DC471DDBF3F50005ABB9 /* AppData.swift in Sources */,
+				DE28DC4A1DDC2B350005ABB9 /* LegisDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="LegisDetailTableViewCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LegisDetailTableViewCell" customModule="CocoaCongress" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="340" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-xJ-JG2">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="112" id="dKt-DS-v6w"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryX-mz-mEv">
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="7DM-n7-NTu"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="firstBaseline" secondItem="xwn-xJ-JG2" secondAttribute="firstBaseline" id="Hhg-vA-qnC"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="ZNX-gs-2D8"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="aP7-U3-Kcx"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="baseline" secondItem="xwn-xJ-JG2" secondAttribute="baseline" id="gQZ-1y-cSK"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nET-tU-aTh"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="leading" secondItem="xwn-xJ-JG2" secondAttribute="trailing" constant="8" symbolic="YES" id="qqY-Yz-JKZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelContent" destination="ryX-mz-mEv" id="6tO-eF-hGE"/>
+                <outlet property="labelTitle" destination="xwn-xJ-JG2" id="cSw-Tn-Xh2"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
