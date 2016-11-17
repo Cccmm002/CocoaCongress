@@ -15,8 +15,8 @@
 		DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E30441DDA805900427054 /* LegisTableViewCell.swift */; };
 		DE0E30471DDA805900427054 /* LegisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0E30451DDA805900427054 /* LegisTableViewCell.xib */; };
 		DE28DC471DDBF3F50005ABB9 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28DC461DDBF3F50005ABB9 /* AppData.swift */; };
-		DE28DC4A1DDC2B350005ABB9 /* LegisDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */; };
-		DE28DC4B1DDC2B350005ABB9 /* LegisDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */; };
+		DE28DC4A1DDC2B350005ABB9 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28DC481DDC2B350005ABB9 /* DetailTableViewCell.swift */; };
+		DE28DC4B1DDC2B350005ABB9 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE28DC491DDC2B350005ABB9 /* DetailTableViewCell.xib */; };
 		DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */; };
 		DE3BD4211DD8EAC600402FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD41F1DD8EAC600402FD3 /* Main.storyboard */; };
 		DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD4221DD8EAC600402FD3 /* Assets.xcassets */; };
@@ -36,6 +36,10 @@
 		DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */; };
 		DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD4631DD9463D00402FD3 /* UIView.swift */; };
 		DE8E0A441DDCDEBA001356D0 /* LegSenateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E0A431DDCDEBA001356D0 /* LegSenateViewController.swift */; };
+		DE8E0A471DDD1139001356D0 /* BillActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E0A461DDD1139001356D0 /* BillActiveViewController.swift */; };
+		DE8E0A491DDD1151001356D0 /* BillNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E0A481DDD1151001356D0 /* BillNewViewController.swift */; };
+		DE8E0A4B1DDD1D98001356D0 /* BillSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE8E0A4A1DDD1D98001356D0 /* BillSubViews.storyboard */; };
+		DE8E0A4D1DDD1E6B001356D0 /* BillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E0A4C1DDD1E6B001356D0 /* BillDetailViewController.swift */; };
 		DEC64F981DDAFE07001B8B9A /* LegHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */; };
 		DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */; };
 		DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */; };
@@ -70,8 +74,8 @@
 		DE0E30441DDA805900427054 /* LegisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisTableViewCell.swift; sourceTree = "<group>"; };
 		DE0E30451DDA805900427054 /* LegisTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisTableViewCell.xib; sourceTree = "<group>"; };
 		DE28DC461DDBF3F50005ABB9 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailTableViewCell.swift; sourceTree = "<group>"; };
-		DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisDetailTableViewCell.xib; sourceTree = "<group>"; };
+		DE28DC481DDC2B350005ABB9 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		DE28DC491DDC2B350005ABB9 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		DE3BD4181DD8EAC600402FD3 /* CocoaCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3BD41B1DD8EAC600402FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE3BD4201DD8EAC600402FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +101,10 @@
 		DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		DE3BD4631DD9463D00402FD3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DE8E0A431DDCDEBA001356D0 /* LegSenateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegSenateViewController.swift; sourceTree = "<group>"; };
+		DE8E0A461DDD1139001356D0 /* BillActiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillActiveViewController.swift; sourceTree = "<group>"; };
+		DE8E0A481DDD1151001356D0 /* BillNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillNewViewController.swift; sourceTree = "<group>"; };
+		DE8E0A4A1DDD1D98001356D0 /* BillSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BillSubViews.storyboard; sourceTree = "<group>"; };
+		DE8E0A4C1DDD1E6B001356D0 /* BillDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetailViewController.swift; sourceTree = "<group>"; };
 		DEC64F971DDAFE07001B8B9A /* LegHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegHouseViewController.swift; sourceTree = "<group>"; };
 		DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LegisSubViews.storyboard; sourceTree = "<group>"; };
 		DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +159,8 @@
 			children = (
 				DE0E30441DDA805900427054 /* LegisTableViewCell.swift */,
 				DE0E30451DDA805900427054 /* LegisTableViewCell.xib */,
-				DE28DC481DDC2B350005ABB9 /* LegisDetailTableViewCell.swift */,
-				DE28DC491DDC2B350005ABB9 /* LegisDetailTableViewCell.xib */,
+				DE28DC481DDC2B350005ABB9 /* DetailTableViewCell.swift */,
+				DE28DC491DDC2B350005ABB9 /* DetailTableViewCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 		DE3BD41A1DD8EAC600402FD3 /* CocoaCongress */ = {
 			isa = PBXGroup;
 			children = (
+				DE8E0A451DDD1105001356D0 /* BillTab */,
 				DEC64F991DDAFE2D001B8B9A /* LegislatorTab */,
 				DE0E30411DDA7ECE00427054 /* TableCells */,
 				DE3BD45E1DD93EC200402FD3 /* MiniViews */,
@@ -192,7 +201,6 @@
 				DE3BD4241DD8EAC600402FD3 /* LaunchScreen.storyboard */,
 				DE3BD4271DD8EAC600402FD3 /* Info.plist */,
 				DE3BD44B1DD92CC800402FD3 /* LeftMenuViewController.swift */,
-				DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */,
 				DE0E30391DD96FA500427054 /* ComTabBarController.swift */,
 				DE0E303B1DD9701200427054 /* FavTabBarController.swift */,
 				DE0E303D1DD9725300427054 /* AboutViewController.swift */,
@@ -240,6 +248,18 @@
 				DE3BD4611DD9402300402FD3 /* MenuHeaderView.swift */,
 			);
 			name = MiniViews;
+			sourceTree = "<group>";
+		};
+		DE8E0A451DDD1105001356D0 /* BillTab */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BD4511DD92EC300402FD3 /* BillTabBarController.swift */,
+				DE8E0A461DDD1139001356D0 /* BillActiveViewController.swift */,
+				DE8E0A481DDD1151001356D0 /* BillNewViewController.swift */,
+				DE8E0A4A1DDD1D98001356D0 /* BillSubViews.storyboard */,
+				DE8E0A4C1DDD1E6B001356D0 /* BillDetailViewController.swift */,
+			);
+			name = BillTab;
 			sourceTree = "<group>";
 		};
 		DEC64F991DDAFE2D001B8B9A /* LegislatorTab */ = {
@@ -378,7 +398,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3BD4601DD93EE600402FD3 /* MenuHeaderView.xib in Resources */,
-				DE28DC4B1DDC2B350005ABB9 /* LegisDetailTableViewCell.xib in Resources */,
+				DE8E0A4B1DDD1D98001356D0 /* BillSubViews.storyboard in Resources */,
+				DE28DC4B1DDC2B350005ABB9 /* DetailTableViewCell.xib in Resources */,
 				DE3BD4261DD8EAC600402FD3 /* LaunchScreen.storyboard in Resources */,
 				DE3BD4231DD8EAC600402FD3 /* Assets.xcassets in Resources */,
 				DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */,
@@ -463,11 +484,14 @@
 				DE0E303E1DD9725300427054 /* AboutViewController.swift in Sources */,
 				DEC64FA01DDBA864001B8B9A /* StatePickerViewController.swift in Sources */,
 				DE3BD4551DD9371700402FD3 /* UIColor.swift in Sources */,
+				DE8E0A471DDD1139001356D0 /* BillActiveViewController.swift in Sources */,
 				DE0E30461DDA805900427054 /* LegisTableViewCell.swift in Sources */,
 				DE3BD41C1DD8EAC600402FD3 /* AppDelegate.swift in Sources */,
+				DE8E0A4D1DDD1E6B001356D0 /* BillDetailViewController.swift in Sources */,
 				DE3BD4641DD9463D00402FD3 /* UIView.swift in Sources */,
 				DE3BD44C1DD92CC800402FD3 /* LeftMenuViewController.swift in Sources */,
 				DE0E303A1DD96FA500427054 /* ComTabBarController.swift in Sources */,
+				DE8E0A491DDD1151001356D0 /* BillNewViewController.swift in Sources */,
 				DE3BD4571DD9375100402FD3 /* String.swift in Sources */,
 				DE3BD4521DD92EC300402FD3 /* BillTabBarController.swift in Sources */,
 				DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */,
@@ -478,7 +502,7 @@
 				DE3BD4621DD9402300402FD3 /* MenuHeaderView.swift in Sources */,
 				DE3BD4501DD92DBE00402FD3 /* LegStateViewController.swift in Sources */,
 				DE28DC471DDBF3F50005ABB9 /* AppData.swift in Sources */,
-				DE28DC4A1DDC2B350005ABB9 /* LegisDetailTableViewCell.swift in Sources */,
+				DE28DC4A1DDC2B350005ABB9 /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

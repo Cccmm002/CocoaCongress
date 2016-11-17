@@ -11,9 +11,22 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 
+struct BillTableData {
+    var id : String
+    var title : String
+    var active : Bool
+    
+    init(id: String, title: String, active: Bool) {
+        self.title = title
+        self.id = id
+        self.active = active
+    }
+}
+
 class AppData {
-    var legisData : [LegisTableData] = []
     var state_list : [String] = []
+    var legisData : [LegisTableData] = []
+    var billData : [BillTableData] = []
     
     func existLegisData() -> Bool {
         if legisData.count == 0 {
@@ -24,7 +37,16 @@ class AppData {
         }
     }
     
-    func buildLegisData(json : JSON) {
+    func existBillData() -> Bool {
+        if billData.count == 0 {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func _buildLegisData(json : JSON) {
         self.legisData = []
         let count = json["count"].int!
         for i in 0 ..< count {
@@ -38,13 +60,23 @@ class AppData {
         }
     }
     
+    func _buildBillData(json : JSON) {
+        self.billData = []
+        let count = json["count"].int!
+        for i in 0 ..< count {
+            let id = json["results"][i]["bill_id"].string!
+            let title = json["results"][i]["official_title"].string!
+            let active = json["results"][i]["active"].bool!
+            let data = BillTableData(id: id, title: title, active: active)
+            self.billData.append(data)
+        }
+    }
+    
     func loadLegisData(view : LegislatorTabs) {
         if !(existLegisData()) {
             SwiftSpinner.show("Fetching data...")
             
-            let url: String = Constants.Host
-            
-            Alamofire.request(url, method: .get, parameters: ["database":"states"]).validate().responseJSON { response in
+            Alamofire.request(Constants.Host, method: .get, parameters: ["database":"states"]).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let jstates = JSON(value)
@@ -55,11 +87,11 @@ class AppData {
                 }
             }
             
-            Alamofire.request(url, method: .get, parameters: ["database":"legislators"]).validate().responseJSON { response in
+            Alamofire.request(Constants.Host, method: .get, parameters: ["database":"legislators"]).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    self.buildLegisData(json: json)
+                    self._buildLegisData(json: json)
                     view.resetData()
                 case .failure(let error):
                     print(error)
@@ -67,6 +99,41 @@ class AppData {
                 SwiftSpinner.hide()
             }
         }
+    }
+    
+    func loadBillData(view : BillTabs) {
+        if !(existBillData()) {
+            SwiftSpinner.show("Fetching data...")
+            
+            Alamofire.request(Constants.Host, method: .get, parameters: ["database":"bills"]).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    self._buildBillData(json: json)
+                    view.resetData()
+                case .failure(let error):
+                    print(error)
+                }
+                SwiftSpinner.hide()
+            }
+        }
+    }
+    
+    static func dateTransform(from: String?) -> String {
+        if let f = from {
+            let tf = f.substring(to: f.index(f.startIndex, offsetBy: 10))
         
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale.current
+            dateFormatter.dateFormat = "dd MMM yyyy"
+            let dateSource = DateFormatter()
+            dateSource.locale = Locale.current
+            dateSource.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.string(from: dateSource.date(from: tf)!)
+        }
+        else {
+            return ""
+        }
     }
 }

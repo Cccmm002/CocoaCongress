@@ -22,7 +22,7 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.detailTable.registerCellNib(LegisDetailTableViewCell.self)
+        self.detailTable.registerCellNib(DetailTableViewCell.self)
         
         self.navigationItem.title = "Legislator Details"
 
@@ -45,19 +45,11 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func parseData(json: JSON) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        let dateSource = DateFormatter()
-        dateSource.locale = Locale.current
-        dateSource.dateFormat = "yyyy-MM-dd"
-        
         self.tableData = []
         self.tableData.append(detailTableData(title:"First Name",content:json["personal"]["first_name"].string!,click:false))
         self.tableData.append(detailTableData(title:"Last Name",content:json["personal"]["last_name"].string!,click:false))
         self.tableData.append(detailTableData(title:"State",content:json["personal"]["state_name"].string!,click:false))
-        let date_birth = dateFormatter.string(from: dateSource.date(from: json["personal"]["birthday"].string!)!)
-        self.tableData.append(detailTableData(title:"Birth Date",content:date_birth,click:false))
+        self.tableData.append(detailTableData(title:"Birth Date",content:AppData.dateTransform(from: json["personal"]["birthday"].string!),click:false))
         self.tableData.append(detailTableData(title:"Gender",content:((json["personal"]["gender"].string!)=="M" ? "Male" : "Female"),click:false))
         self.tableData.append(detailTableData(title:"Chamber",content:((json["personal"]["chamber"].string!)=="house" ? "House" : "Senate"),click:false))
         self.tableData.append(detailTableData(title:"Fax No.",content:json["personal"]["fax"].string,click:false))
@@ -83,8 +75,7 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
         self.tableData.append(detailTableData(title:"Website",content:website,click:true))
         self.tableData.append(detailTableData(title:"Office No.",content:json["personal"]["office"].string!,click:false))
-        let date_ends = dateFormatter.string(from: dateSource.date(from: json["personal"]["term_end"].string!)!)
-        self.tableData.append(detailTableData(title:"Term ends on",content:date_ends,click:false))
+        self.tableData.append(detailTableData(title:"Term ends on",content:AppData.dateTransform(from: json["personal"]["term_end"].string!),click:false))
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,21 +84,9 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LegisDetailTableViewCell.identifier, for: indexPath) as! LegisDetailTableViewCell
-        cell.labelTitle.text = self.tableData[indexPath.row].title
-        if self.tableData[indexPath.row].content == "" {
-            cell.labelContent.text = "N.A."
-        }
-        else {
-            if self.tableData[indexPath.row].clickable {
-                cell.labelContent.text = self.tableData[indexPath.row].title + " Link"
-                cell.labelContent.textColor = UIColor.blue
-                cell.createLink(url: self.tableData[indexPath.row].content)
-            }
-            else {
-                cell.labelContent.text = self.tableData[indexPath.row].content
-            }
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+        
+        cell.setData(data: self.tableData[indexPath.row])
         
         return cell
     }

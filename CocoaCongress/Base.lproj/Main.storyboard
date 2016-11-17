@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="-628.33583208395805"/>
         </scene>
-        <!--House-->
+        <!--New-->
         <scene sceneID="cf4-3q-WHW">
             <objects>
-                <viewController id="Avp-6L-HiF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BillNewViewController" id="Avp-6L-HiF" customClass="BillNewViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wSB-4d-QUD"/>
                         <viewControllerLayoutGuide type="bottom" id="RuR-Rf-TUH"/>
@@ -54,13 +54,28 @@
                     <view key="view" contentMode="scaleToFill" id="bnL-hY-MdF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-gQ-Qrk">
+                                <frame key="frameInset" width="375" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Avp-6L-HiF" id="wKx-QA-GBJ"/>
+                                    <outlet property="delegate" destination="Avp-6L-HiF" id="dEd-Z7-kUf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="House" id="aZ7-JA-KyG"/>
+                    <tabBarItem key="tabBarItem" title="New" id="aZ7-JA-KyG"/>
+                    <connections>
+                        <outlet property="table" destination="eqX-gQ-Qrk" id="lty-EF-LEm"/>
+                        <outlet property="view" destination="eqX-gQ-Qrk" id="3f6-Pq-fPs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6o2-rk-hi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927" y="1071"/>
+            <point key="canvasLocation" x="1740" y="967.4662668665668"/>
         </scene>
         <!--House-->
         <scene sceneID="S5x-Wa-scC">
@@ -192,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="-20" y="1697"/>
         </scene>
-        <!--House-->
+        <!--Active-->
         <scene sceneID="b1v-a6-6JE">
             <objects>
-                <viewController id="gS2-yB-xO8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BillActiveViewController" id="gS2-yB-xO8" customClass="BillActiveViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gwJ-vY-TMa"/>
                         <viewControllerLayoutGuide type="bottom" id="53e-33-vl0"/>
@@ -203,13 +218,28 @@
                     <view key="view" contentMode="scaleToFill" id="QFY-iq-6R7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5O-ob-Hwb">
+                                <frame key="frameInset" width="375" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gS2-yB-xO8" id="CZE-Yf-4HS"/>
+                                    <outlet property="delegate" destination="gS2-yB-xO8" id="XMw-81-0we"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="House" id="FqB-dL-ik1"/>
+                    <tabBarItem key="tabBarItem" title="Active" id="FqB-dL-ik1"/>
+                    <connections>
+                        <outlet property="table" destination="u5O-ob-Hwb" id="9gg-g9-mfc"/>
+                        <outlet property="view" destination="u5O-ob-Hwb" id="oHn-OY-Bsf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwh-Gu-kqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="414"/>
+            <point key="canvasLocation" x="984.79999999999995" y="536.58170914542734"/>
         </scene>
         <!--Bill Tab Bar Controller-->
         <scene sceneID="kb7-Em-oS3">
@@ -275,26 +305,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nzz-cI-l1g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nst-5u-Xuk">
+                                <frame key="frameInset" width="375" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Eyg-tZ-DHd" id="fFS-0k-dN9"/>
-                                    <outlet property="delegate" destination="Eyg-tZ-DHd" id="sar-vq-bbp"/>
+                                    <outlet property="dataSource" destination="Eyg-tZ-DHd" id="Qar-Rk-SXV"/>
+                                    <outlet property="delegate" destination="Eyg-tZ-DHd" id="SmW-jA-gDg"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="nzz-cI-l1g" firstAttribute="leading" secondItem="LbZ-rs-dWC" secondAttribute="leading" id="3cc-1w-mLD"/>
-                            <constraint firstAttribute="trailing" secondItem="nzz-cI-l1g" secondAttribute="trailing" id="EZ5-xC-szZ"/>
-                            <constraint firstItem="nzz-cI-l1g" firstAttribute="bottom" secondItem="H7M-Ph-wUz" secondAttribute="top" id="KCs-SK-H6p"/>
-                            <constraint firstItem="nzz-cI-l1g" firstAttribute="top" secondItem="LbZ-rs-dWC" secondAttribute="top" id="bdN-2X-Q0I"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="State" id="KeP-Ll-isL"/>
                     <connections>
-                        <outlet property="table" destination="nzz-cI-l1g" id="nNL-Um-k4s"/>
-                        <outlet property="view" destination="nzz-cI-l1g" id="NqZ-I7-euh"/>
+                        <outlet property="table" destination="nst-5u-Xuk" id="DJX-wa-q6l"/>
+                        <outlet property="view" destination="nst-5u-Xuk" id="Me9-Vv-yDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLg-IW-4Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,7 +14,20 @@ class BillTabBarController: UITabBarController {
         super.viewDidLoad()
         self.navigationItem.title="Bills"
 
-        // Do any additional setup after loading the view.
+        let activeView = self.viewControllers?[0] as! BillActiveViewController
+        let newView = self.viewControllers?[1] as! BillNewViewController
+        
+        activeView.tabController = self
+        newView.tabController = self
+        activeView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        newView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        
+        let titleFont : UIFont = UIFont.systemFont(ofSize: 20.0)
+        let attr = [NSFontAttributeName:titleFont]
+        activeView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        activeView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        newView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        newView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,4 +51,8 @@ class BillTabBarController: UITabBarController {
     }
     */
 
+}
+
+protocol BillTabs {
+    func resetData()
 }

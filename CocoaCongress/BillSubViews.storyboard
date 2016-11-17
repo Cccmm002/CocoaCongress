@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bill Detail View Controller-->
+        <scene sceneID="5PY-qB-Oxj">
+            <objects>
+                <viewController storyboardIdentifier="BillDetailViewController" id="fNo-IN-sud" customClass="BillDetailViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kjZ-vf-Y2p"/>
+                        <viewControllerLayoutGuide type="bottom" id="JCy-2y-To0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hqe-Pi-4th">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ikr-ZY-5TQ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fNo-IN-sud" id="lVh-6H-IJ6"/>
+                                    <outlet property="delegate" destination="fNo-IN-sud" id="9aN-G6-ukN"/>
+                                </connections>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NSA-4g-R2V">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="DE8-Lh-IPa"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NSA-4g-R2V" firstAttribute="leading" secondItem="hqe-Pi-4th" secondAttribute="leadingMargin" id="9YH-nV-2Q2"/>
+                            <constraint firstItem="NSA-4g-R2V" firstAttribute="trailing" secondItem="hqe-Pi-4th" secondAttribute="trailingMargin" id="HJf-M3-UX2"/>
+                            <constraint firstAttribute="bottom" secondItem="Ikr-ZY-5TQ" secondAttribute="bottom" constant="20" symbolic="YES" id="K3x-J4-jWm"/>
+                            <constraint firstItem="NSA-4g-R2V" firstAttribute="trailing" secondItem="Ikr-ZY-5TQ" secondAttribute="trailing" id="K5L-SH-xN6"/>
+                            <constraint firstItem="NSA-4g-R2V" firstAttribute="top" secondItem="kjZ-vf-Y2p" secondAttribute="bottom" constant="38" id="PFe-sh-3o6"/>
+                            <constraint firstItem="Ikr-ZY-5TQ" firstAttribute="top" secondItem="NSA-4g-R2V" secondAttribute="bottom" constant="8" id="Rsy-n2-xCz"/>
+                            <constraint firstItem="NSA-4g-R2V" firstAttribute="leading" secondItem="Ikr-ZY-5TQ" secondAttribute="leading" id="u8f-Je-Hoc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailTable" destination="Ikr-ZY-5TQ" id="d1i-F9-f95"/>
+                        <outlet property="textView" destination="NSA-4g-R2V" id="XyW-Jh-s5q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FO8-Fg-PKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.799999999999997" y="201.94902548725639"/>
+        </scene>
+    </scenes>
+</document>

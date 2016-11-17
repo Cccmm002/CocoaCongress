@@ -25,7 +25,7 @@ struct detailTableData {
     }
 }
 
-class LegisDetailTableViewCell: UITableViewCell {
+class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelContent: UILabel!
     
@@ -44,9 +44,26 @@ class LegisDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setData(data: detailTableData) {
+        self.labelTitle.text = data.title
+        if data.content == "" {
+            self.labelContent.text = "N.A."
+        }
+        else {
+            if data.clickable {
+                self.labelContent.text = data.title + " Link"
+                self.labelContent.textColor = UIColor.blue
+                self.createLink(url: data.content)
+            }
+            else {
+                self.labelContent.text = data.content
+            }
+        }
+    }
+    
     func createLink(url: String) {
         self.linkUrl = url
-        let tap = UITapGestureRecognizer(target: self, action: #selector(LegisDetailTableViewCell.tapFunction))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailTableViewCell.tapFunction))
         labelContent.isUserInteractionEnabled = true
         labelContent.addGestureRecognizer(tap)
     }
