@@ -13,7 +13,27 @@ class FavTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title="Favorites"
-        // Do any additional setup after loading the view.
+        
+        let legisView = self.viewControllers?[0] as! FavLegisViewController
+        let billView = self.viewControllers?[1] as! FavBillViewController
+        let comView = self.viewControllers?[2] as! FavComViewController
+        
+        legisView.tabController = self
+        billView.tabController = self
+        comView.tabController = self
+        
+        legisView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        billView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        comView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        
+        let titleFont : UIFont = UIFont.systemFont(ofSize: 20.0)
+        let attr = [NSFontAttributeName:titleFont]
+        legisView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        legisView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        billView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        billView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        comView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        comView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
     }
 
     override func didReceiveMemoryWarning() {

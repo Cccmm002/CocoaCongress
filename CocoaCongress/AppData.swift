@@ -25,11 +25,17 @@ struct BillTableData {
 
 class AppData {
     var state_list : [String] = []
+    
     var legisData : [LegisTableData] = []
     var billData : [BillTableData] = []
+    var comData : [ComTableData] = []
+    
+    var legisFavData : [LegisTableData] = []
+    var billFavData : [BillTableData] = []
+    var comFavData : [ComTableData] = []
     
     func existLegisData() -> Bool {
-        if legisData.count == 0 {
+        if self.legisData.count == 0 {
             return false
         }
         else {
@@ -38,7 +44,16 @@ class AppData {
     }
     
     func existBillData() -> Bool {
-        if billData.count == 0 {
+        if self.billData.count == 0 {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    func existComData() -> Bool {
+        if self.comData.count == 0 {
             return false
         }
         else {
@@ -69,6 +84,19 @@ class AppData {
             let active = json["results"][i]["active"].bool!
             let data = BillTableData(id: id, title: title, active: active)
             self.billData.append(data)
+        }
+    }
+    
+    func _buildComData(json : JSON) {
+        self.comData = []
+        if let items = json.array {
+            for item in items {
+                let title = item["name"].string!
+                let id = item["committee_id"].string!
+                let chamber = item["chamber"].string!
+                let data = ComTableData(id: id, title: title, chamber: chamber)
+                self.comData.append(data)
+            }
         }
     }
     
@@ -110,6 +138,24 @@ class AppData {
                 case .success(let value):
                     let json = JSON(value)
                     self._buildBillData(json: json)
+                    view.resetData()
+                case .failure(let error):
+                    print(error)
+                }
+                SwiftSpinner.hide()
+            }
+        }
+    }
+    
+    func loadComData(view : CommitteeTabs) {
+        if !(existComData()) {
+            SwiftSpinner.show("Fetching data...")
+            
+            Alamofire.request(Constants.Host, method: .get, parameters: ["database":"committees"]).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    self._buildComData(json: json)
                     view.resetData()
                 case .failure(let error):
                     print(error)

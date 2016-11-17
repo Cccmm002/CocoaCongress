@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SwiftSpinner
 
 class LegisDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -18,6 +19,8 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var legis : LegisTableData? = nil
     
     var tableData : [detailTableData] = []
+    
+    var inFav : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +28,44 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.detailTable.registerCellNib(DetailTableViewCell.self)
         
         self.navigationItem.title = "Legislator Details"
+        
+        for item in Constants.data.legisFavData {
+            if(item.id == self.legis?.id) {
+                self.inFav = true
+                break
+            }
+        }
+        let img = UIImage(named: (self.inFav ? "star" : "star_empty"))
+        let favButton = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleFavorite))
+        self.navigationItem.rightBarButtonItem = favButton
 
         self.imageViewer.image = legis?.image
         
         loadDetail()
     }
     
+    func toggleFavorite() {
+        if self.inFav {
+            let count = Constants.data.legisFavData.count
+            for i in 0 ..< count {
+                if Constants.data.legisFavData[i].id == legis?.id {
+                    Constants.data.legisFavData.remove(at: i)
+                    self.inFav = false
+                    self.navigationItem.rightBarButtonItem?.image = UIImage(named: "star_empty")
+                    break
+                }
+            }
+        }
+        else {
+            Constants.data.legisFavData.append(legis!)
+            self.inFav = true
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "star")
+        }
+    }
+    
     func loadDetail() {
+        SwiftSpinner.show("Fetching data...")
+        
         Alamofire.request(Constants.Host, method: .get, parameters: ["database":"legislators", "id":legis!.id]).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -41,6 +75,7 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
             case .failure(let error):
                 print(error)
             }
+            SwiftSpinner.hide()
         }
     }
     

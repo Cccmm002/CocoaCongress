@@ -1,5 +1,5 @@
 //
-//  BillActiveViewController.swift
+//  ComHouseViewController.swift
 //  CocoaCongress
 //
 //  Created by Cccmm002 on 11/16/16.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class BillActiveViewController: UIViewController, BillTabs {
+class ComHouseViewController: UIViewController, CommitteeTabs {
     
-    var filteredData : [BillTableData] = []
+    var filteredData : [ComTableData] = []
     
-    var tabController : BillTabBarController? = nil
+    var tabController : ComTabBarController? = nil
     
     var searchButton : UIBarButtonItem? = nil
     var searchController : UISearchController = UISearchController()
@@ -21,6 +21,8 @@ class BillActiveViewController: UIViewController, BillTabs {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.table.registerCellNib(ComTableViewCell.self)
         
         self.searchButton = UIBarButtonItem(image: UIImage(named: "Search-25")!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleSearch))
         self.searchController = UISearchController(searchResultsController: nil)
@@ -29,18 +31,17 @@ class BillActiveViewController: UIViewController, BillTabs {
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.delegate = self
         
-        if !Constants.data.existBillData() {
-            Constants.data.loadBillData(view: self)
+        if !Constants.data.existComData() {
+            Constants.data.loadComData(view: self)
         }
         else {
             resetData()
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabController!.navigationItem.title = "Bills"
+        tabController!.navigationItem.title = "Committees"
         tabController!.navigationItem.rightBarButtonItem = self.searchButton
     }
     
@@ -55,20 +56,20 @@ class BillActiveViewController: UIViewController, BillTabs {
     }
     
     func resetData() {
-        self.filteredData = Constants.data.billData.filter { $0.active }
+        self.filteredData = Constants.data.comData.filter{ $0.chamber == "house" }
         self.table.reloadData()
     }
 
 }
 
-extension BillActiveViewController : UISearchResultsUpdating, UISearchControllerDelegate {
+extension ComHouseViewController : UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!.lowercased()
         if searchText == "" || searchText == " " {
             self.resetData()
             return
         }
-        self.filteredData = Constants.data.billData.filter { $0.active && $0.title.lowercased().contains(searchText) }
+        self.filteredData = Constants.data.comData.filter { ($0.chamber == "house") && ($0.title.lowercased().contains(searchText)) }
         self.table.reloadData()
     }
     
@@ -76,24 +77,25 @@ extension BillActiveViewController : UISearchResultsUpdating, UISearchController
         self.resetData()
         tabController!.navigationItem.titleView = nil
     }
+    
 }
 
-extension BillActiveViewController : UITableViewDelegate {
+extension ComHouseViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return ComTableViewCell.height()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "BillSubViews", bundle: nil)
-        let subContentsVC = storyboard.instantiateViewController(withIdentifier: "BillDetailViewController") as! BillDetailViewController
-        subContentsVC.bill = self.filteredData[indexPath.row]
+        let storyboard = UIStoryboard(name: "ComSubViews", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewController(withIdentifier: "ComDetailViewController") as! ComDetailViewController
+        subContentsVC.com = self.filteredData[indexPath.row]
         self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
 }
 
-extension BillActiveViewController: UITableViewDataSource {
+extension ComHouseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !Constants.data.existBillData() {
+        if !Constants.data.existComData() {
             return 0
         }
         else {
@@ -102,14 +104,9 @@ extension BillActiveViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell_bill_active")
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell_bill_active")
-        }
-        cell!.textLabel?.text = filteredData[indexPath.row].title
-        cell!.textLabel?.numberOfLines = 0
-        cell!.textLabel?.lineBreakMode = .byWordWrapping
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: ComTableViewCell.identifier, for: indexPath) as! ComTableViewCell
+        cell.setData(data: filteredData[indexPath.row])
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

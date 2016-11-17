@@ -1,5 +1,5 @@
 //
-//  BillActiveViewController.swift
+//  FavBillViewController.swift
 //  CocoaCongress
 //
 //  Created by Cccmm002 on 11/16/16.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class BillActiveViewController: UIViewController, BillTabs {
+class FavBillViewController: UIViewController {
     
     var filteredData : [BillTableData] = []
     
-    var tabController : BillTabBarController? = nil
-    
+    var tabController : FavTabBarController? = nil
     var searchButton : UIBarButtonItem? = nil
+    
     var searchController : UISearchController = UISearchController()
     
     @IBOutlet var table: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,46 +29,42 @@ class BillActiveViewController: UIViewController, BillTabs {
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.delegate = self
         
-        if !Constants.data.existBillData() {
-            Constants.data.loadBillData(view: self)
-        }
-        else {
-            resetData()
-        }
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabController!.navigationItem.title = "Bills"
-        tabController!.navigationItem.rightBarButtonItem = self.searchButton
+        self.filteredData = Constants.data.billFavData
     }
     
     func toggleSearch() {
         tabController!.navigationItem.titleView = self.searchController.searchBar
         self.searchController.searchBar.sizeToFit()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabController!.navigationItem.rightBarButtonItem = self.searchButton
+        if tabController!.navigationItem.titleView != self.searchController.searchBar {
+            self.resetData()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func resetData() {
-        self.filteredData = Constants.data.billData.filter { $0.active }
+        self.filteredData = Constants.data.billFavData
         self.table.reloadData()
     }
-
+    
 }
 
-extension BillActiveViewController : UISearchResultsUpdating, UISearchControllerDelegate {
+extension FavBillViewController : UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!.lowercased()
         if searchText == "" || searchText == " " {
             self.resetData()
             return
         }
-        self.filteredData = Constants.data.billData.filter { $0.active && $0.title.lowercased().contains(searchText) }
+        self.filteredData = Constants.data.billFavData.filter { ($0.active == false) && $0.title.lowercased().contains(searchText) }
         self.table.reloadData()
     }
     
@@ -76,9 +72,10 @@ extension BillActiveViewController : UISearchResultsUpdating, UISearchController
         self.resetData()
         tabController!.navigationItem.titleView = nil
     }
+    
 }
 
-extension BillActiveViewController : UITableViewDelegate {
+extension FavBillViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -91,20 +88,15 @@ extension BillActiveViewController : UITableViewDelegate {
     }
 }
 
-extension BillActiveViewController: UITableViewDataSource {
+extension FavBillViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !Constants.data.existBillData() {
-            return 0
-        }
-        else {
-            return self.filteredData.count
-        }
+        return self.filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell_bill_active")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell_bill_fav")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell_bill_active")
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell_bill_fav")
         }
         cell!.textLabel?.text = filteredData[indexPath.row].title
         cell!.textLabel?.numberOfLines = 0
@@ -112,7 +104,4 @@ extension BillActiveViewController: UITableViewDataSource {
         return cell!
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 }

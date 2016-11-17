@@ -13,7 +13,25 @@ class ComTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title="Committees"
-        // Do any additional setup after loading the view.
+        
+        let jointView = self.viewControllers?[2] as! ComJointViewController
+        let houseView = self.viewControllers?[0] as! ComHouseViewController
+        let senateView = self.viewControllers?[1] as! ComSenateViewController
+        jointView.tabController = self
+        houseView.tabController = self
+        senateView.tabController = self
+        jointView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        houseView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        senateView.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
+        
+        let titleFont : UIFont = UIFont.systemFont(ofSize: 20.0)
+        let attr = [NSFontAttributeName:titleFont]
+        jointView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        jointView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        houseView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        houseView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
+        senateView.tabBarItem.setTitleTextAttributes(attr, for: .normal)
+        senateView.tabBarItem.setTitleTextAttributes(attr, for: .selected)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,4 +55,8 @@ class ComTabBarController: UITabBarController {
     }
     */
 
+}
+
+protocol CommitteeTabs {
+    func resetData()
 }

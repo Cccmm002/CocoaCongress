@@ -1,5 +1,5 @@
 //
-//  BillDetailViewController.swift
+//  ComDetailViewController.swift
 //  CocoaCongress
 //
 //  Created by Cccmm002 on 11/16/16.
@@ -11,26 +11,26 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 
-class BillDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ComDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var detailTable: UITableView!
     @IBOutlet weak var textView: UITextView!
     
-    var bill : BillTableData? = nil
+    var com : ComTableData? = nil
     
     var tableData : [detailTableData] = []
     
     var inFav : Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.detailTable.registerCellNib(DetailTableViewCell.self)
         
-        self.navigationItem.title = "Bill Details"
+        self.navigationItem.title = "Committee Details"
         
-        for item in Constants.data.billFavData {
-            if(item.id == self.bill?.id) {
+        for item in Constants.data.comFavData {
+            if(item.id == self.com?.id) {
                 self.inFav = true
                 break
             }
@@ -39,17 +39,17 @@ class BillDetailViewController: UIViewController, UITableViewDataSource, UITable
         let favButton = UIBarButtonItem(image: img!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleFavorite))
         self.navigationItem.rightBarButtonItem = favButton
         
-        self.textView.text = bill?.title
-
+        self.textView.text = com?.title
+        
         self.loadDetail()
     }
     
     func toggleFavorite() {
         if self.inFav {
-            let count = Constants.data.billFavData.count
+            let count = Constants.data.comFavData.count
             for i in 0 ..< count {
-                if Constants.data.billFavData[i].id == bill?.id {
-                    Constants.data.billFavData.remove(at: i)
+                if Constants.data.comFavData[i].id == com?.id {
+                    Constants.data.comFavData.remove(at: i)
                     self.inFav = false
                     self.navigationItem.rightBarButtonItem?.image = UIImage(named: "star_empty")
                     break
@@ -57,29 +57,31 @@ class BillDetailViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         else {
-            Constants.data.billFavData.append(bill!)
+            Constants.data.comFavData.append(com!)
             self.inFav = true
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "star")
         }
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func parseData(json: JSON) {
         self.tableData = []
-        self.tableData.append(detailTableData(title:"Bill ID",content:json["bill_id"].string!,click:false))
-        self.tableData.append(detailTableData(title:"Bill Type",content:json["bill_type"].string!.uppercased(),click:false))
-        let sponsor = json["sponsor"]["title"].string! + " " + json["sponsor"]["first_name"].string! + " " + json["sponsor"]["last_name"].string!
-        self.tableData.append(detailTableData(title:"Sponsor",content:sponsor,click:false))
-        self.tableData.append(detailTableData(title:"Last Action",content:AppData.dateTransform(from: json["last_action_at"].string),click:false))
-        self.tableData.append(detailTableData(title:"PDF",content:json["last_version","urls","pdf"].string,click:true))
-        self.tableData.append(detailTableData(title:"Chamber",content:((json["chamber"].string!)=="house" ? "House" : "Senate"),click:false))
-        self.tableData.append(detailTableData(title:"Last Vote",content:AppData.dateTransform(from: json["last_vote_at"].string),click:false))
-        self.tableData.append(detailTableData(title:"Status",content:(json["history"]["active"].bool!) ? "Active" : "New",click:false))
+        self.tableData.append(detailTableData(title:"ID",content:json["committee_id"].string,click:false))
+        self.tableData.append(detailTableData(title:"Parent ID",content:json["parent_id"].string,click:false))
+        let chmb = json["chamber"].string!
+        self.tableData.append(detailTableData(title:"Chamber",content:(chmb == "house" ? "House" : (chmb == "senate" ? "Senate" : "Joint")),click:false))
+        self.tableData.append(detailTableData(title:"Office",content:json["office"].string,click:false))
+        self.tableData.append(detailTableData(title:"Contact",content:json["phone"].string,click:false))
     }
     
     func loadDetail() {
         SwiftSpinner.show("Fetching data...")
         
-        Alamofire.request(Constants.Host, method: .get, parameters: ["database":"bills", "id":bill!.id]).validate().responseJSON { response in
+        Alamofire.request(Constants.Host, method: .get, parameters: ["database":"committees", "id":com!.id]).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -90,11 +92,6 @@ class BillDetailViewController: UIViewController, UITableViewDataSource, UITable
             }
             SwiftSpinner.hide()
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,5 +105,5 @@ class BillDetailViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableData.count
     }
-    
+
 }

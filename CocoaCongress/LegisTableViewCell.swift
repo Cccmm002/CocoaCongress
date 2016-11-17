@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LegisTableData {
+class LegisTableData: NSObject, NSCoding {
     
     var id: String
     var chamber: String
@@ -24,6 +24,23 @@ class LegisTableData {
         self.state=state
         self.image=nil
         self.chamber=chamber
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.chamber = aDecoder.decodeObject(forKey: "chamber") as! String
+        self.first_name = aDecoder.decodeObject(forKey: "first_name") as! String
+        self.last_name = aDecoder.decodeObject(forKey: "last_name") as! String
+        self.state = aDecoder.decodeObject(forKey: "state") as! String
+        self.image = nil
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.chamber, forKey: "chamber")
+        aCoder.encode(self.first_name, forKey: "first_name")
+        aCoder.encode(self.last_name, forKey: "last_name")
+        aCoder.encode(self.state, forKey: "state")
     }
 
 }

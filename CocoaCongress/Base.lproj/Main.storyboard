@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1740" y="967.4662668665668"/>
         </scene>
-        <!--House-->
+        <!--Senate-->
         <scene sceneID="S5x-Wa-scC">
             <objects>
-                <viewController id="li5-GB-tuU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComSenateViewController" id="li5-GB-tuU" customClass="ComSenateViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pp3-ja-bmM"/>
                         <viewControllerLayoutGuide type="bottom" id="8uy-TG-6Tr"/>
@@ -88,13 +88,28 @@
                     <view key="view" contentMode="scaleToFill" id="oFE-Yv-pAK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZIU-VH-3PT">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="li5-GB-tuU" id="xhy-vY-HNQ"/>
+                                    <outlet property="delegate" destination="li5-GB-tuU" id="8qD-Hb-w9S"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="House" id="qys-ye-aie"/>
+                    <tabBarItem key="tabBarItem" title="Senate" id="qys-ye-aie"/>
+                    <connections>
+                        <outlet property="table" destination="ZIU-VH-3PT" id="XxG-2I-efv"/>
+                        <outlet property="view" destination="ZIU-VH-3PT" id="iHt-Rm-MK5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08U-Ya-R62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="2024"/>
+            <point key="canvasLocation" x="1616.8" y="1725.7871064467768"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="CYc-So-Sr1">
@@ -117,7 +132,7 @@
         <!--Bills-->
         <scene sceneID="8lx-DD-2jG">
             <objects>
-                <viewController id="ZrR-im-bjQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavBillViewController" id="ZrR-im-bjQ" customClass="FavBillViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8ko-zI-FSL"/>
                         <viewControllerLayoutGuide type="bottom" id="FZi-Op-8LT"/>
@@ -125,18 +140,67 @@
                     <view key="view" contentMode="scaleToFill" id="8LT-T2-fZj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GEX-ue-gv9">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZrR-im-bjQ" id="0Xu-px-DGc"/>
+                                    <outlet property="delegate" destination="ZrR-im-bjQ" id="p08-zj-uqd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bills" id="2GI-Js-fVB"/>
+                    <connections>
+                        <outlet property="table" destination="GEX-ue-gv9" id="iFv-UF-4Ox"/>
+                        <outlet property="view" destination="GEX-ue-gv9" id="Ly3-bg-RE1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEa-UB-zjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="2760"/>
+            <point key="canvasLocation" x="876" y="2759.3703148425789"/>
+        </scene>
+        <!--Committees-->
+        <scene sceneID="BAG-98-gK3">
+            <objects>
+                <viewController storyboardIdentifier="FavComViewController" id="gJb-x6-y8S" customClass="FavComViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l1w-qg-ghN"/>
+                        <viewControllerLayoutGuide type="bottom" id="RO2-US-64h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="clz-eg-m9W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uvK-iF-fl6">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gJb-x6-y8S" id="oTo-2n-hai"/>
+                                    <outlet property="delegate" destination="gJb-x6-y8S" id="WuA-zP-mcb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Committees" id="tVP-PW-x2T"/>
+                    <connections>
+                        <outlet property="table" destination="uvK-iF-fl6" id="5x9-I7-uTH"/>
+                        <outlet property="view" destination="uvK-iF-fl6" id="pq8-tf-8WB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQ2-ds-e5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1597.5999999999999" y="2759.3703148425789"/>
         </scene>
         <!--Legislators-->
         <scene sceneID="FFg-aG-eKI">
             <objects>
-                <viewController id="fLM-Df-Yqa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavLegisViewController" id="fLM-Df-Yqa" customClass="FavLegisViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vGP-2Q-oT1"/>
                         <viewControllerLayoutGuide type="bottom" id="Cez-aF-NE8"/>
@@ -144,13 +208,62 @@
                     <view key="view" contentMode="scaleToFill" id="c27-qx-vdR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ged-9n-xgd">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fLM-Df-Yqa" id="MGL-Zx-iXa"/>
+                                    <outlet property="delegate" destination="fLM-Df-Yqa" id="pOQ-ns-Pp5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Legislators" id="j96-0O-FFn"/>
+                    <connections>
+                        <outlet property="table" destination="ged-9n-xgd" id="6iU-9d-JS0"/>
+                        <outlet property="view" destination="ged-9n-xgd" id="gge-Ye-VYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJ4-PS-Bmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="2105"/>
+            <point key="canvasLocation" x="876" y="2104.4977511244379"/>
+        </scene>
+        <!--Joint-->
+        <scene sceneID="ncR-9g-IVv">
+            <objects>
+                <viewController storyboardIdentifier="ComJointViewController" id="5bl-6c-sGp" customClass="ComJointViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="COk-tj-zqY"/>
+                        <viewControllerLayoutGuide type="bottom" id="5BT-eP-YI7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MQs-By-Kuz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oQ0-fx-9jP">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5bl-6c-sGp" id="CXy-HH-2Hw"/>
+                                    <outlet property="delegate" destination="5bl-6c-sGp" id="kvo-Ol-Ngg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Joint" id="pxM-84-Oxe"/>
+                    <connections>
+                        <outlet property="table" destination="oQ0-fx-9jP" id="fEc-L1-vjK"/>
+                        <outlet property="view" destination="oQ0-fx-9jP" id="fDD-XY-UIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFG-Yd-6VB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2384.8000000000002" y="2021.7391304347827"/>
         </scene>
         <!--Fav Tab Bar Controller-->
         <scene sceneID="Xue-BA-Rzo">
@@ -164,16 +277,17 @@
                     <connections>
                         <segue destination="fLM-Df-Yqa" kind="relationship" relationship="viewControllers" id="B0O-B8-trZ"/>
                         <segue destination="ZrR-im-bjQ" kind="relationship" relationship="viewControllers" id="UMv-DJ-Oin"/>
+                        <segue destination="gJb-x6-y8S" kind="relationship" relationship="viewControllers" id="vTH-b5-Mrz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYb-81-fRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-74" y="2433"/>
         </scene>
-        <!--Senate-->
+        <!--House-->
         <scene sceneID="A9U-Z9-34m">
             <objects>
-                <viewController id="Nme-sX-eLi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComHouseViewController" id="Nme-sX-eLi" customClass="ComHouseViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ONI-H4-2kU"/>
                         <viewControllerLayoutGuide type="bottom" id="lp8-dP-SnI"/>
@@ -181,13 +295,28 @@
                     <view key="view" contentMode="scaleToFill" id="nPj-m8-ke3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n5W-13-Hug">
+                                <frame key="frameInset" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nme-sX-eLi" id="leX-qy-TTr"/>
+                                    <outlet property="delegate" destination="Nme-sX-eLi" id="8Ac-89-uao"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Senate" id="KO2-Hn-abw"/>
+                    <tabBarItem key="tabBarItem" title="House" id="KO2-Hn-abw"/>
+                    <connections>
+                        <outlet property="table" destination="n5W-13-Hug" id="Gr4-8F-1sC"/>
+                        <outlet property="view" destination="n5W-13-Hug" id="e7b-4Y-CP4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LH5-L7-GeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="1370"/>
+            <point key="canvasLocation" x="848.79999999999995" y="1369.5652173913045"/>
         </scene>
         <!--Com Tab Bar Controller-->
         <scene sceneID="rkr-rk-cQJ">
@@ -201,6 +330,7 @@
                     <connections>
                         <segue destination="Nme-sX-eLi" kind="relationship" relationship="viewControllers" id="efF-LM-OTd"/>
                         <segue destination="li5-GB-tuU" kind="relationship" relationship="viewControllers" id="BdK-r2-Pgn"/>
+                        <segue destination="5bl-6c-sGp" kind="relationship" relationship="viewControllers" id="4mv-5b-bon"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UU2-d9-KWh" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Com Detail View Controller-->
+        <scene sceneID="kgw-5w-RT1">
+            <objects>
+                <viewController storyboardIdentifier="ComDetailViewController" id="rGM-00-PNI" customClass="ComDetailViewController" customModule="CocoaCongress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="As6-e0-vLs"/>
+                        <viewControllerLayoutGuide type="bottom" id="xT2-h3-udf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Pq-aF-3Uk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NEr-94-bkg">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="pn5-HO-lkv"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SJg-hm-GjQ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rGM-00-PNI" id="PKq-jb-2vo"/>
+                                    <outlet property="delegate" destination="rGM-00-PNI" id="mda-EO-kgD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NEr-94-bkg" firstAttribute="trailing" secondItem="9Pq-aF-3Uk" secondAttribute="trailingMargin" id="0rc-OV-Pdm"/>
+                            <constraint firstItem="SJg-hm-GjQ" firstAttribute="leading" secondItem="NEr-94-bkg" secondAttribute="leading" id="Hd5-Gb-Bx1"/>
+                            <constraint firstItem="SJg-hm-GjQ" firstAttribute="trailing" secondItem="NEr-94-bkg" secondAttribute="trailing" id="SKy-Tq-d0s"/>
+                            <constraint firstAttribute="bottom" secondItem="SJg-hm-GjQ" secondAttribute="bottom" constant="20" symbolic="YES" id="cZi-jL-pcX"/>
+                            <constraint firstItem="NEr-94-bkg" firstAttribute="leading" secondItem="9Pq-aF-3Uk" secondAttribute="leadingMargin" id="gNY-mc-aS1"/>
+                            <constraint firstItem="SJg-hm-GjQ" firstAttribute="top" secondItem="NEr-94-bkg" secondAttribute="bottom" constant="31" id="iFX-hH-exg"/>
+                            <constraint firstItem="NEr-94-bkg" firstAttribute="top" secondItem="As6-e0-vLs" secondAttribute="bottom" constant="15" id="rno-Or-BwM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailTable" destination="SJg-hm-GjQ" id="z6E-Df-uPP"/>
+                        <outlet property="textView" destination="NEr-94-bkg" id="j0s-eE-DZK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wA-JV-wka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.59999999999999" y="162.3688155922039"/>
+        </scene>
+    </scenes>
+</document>

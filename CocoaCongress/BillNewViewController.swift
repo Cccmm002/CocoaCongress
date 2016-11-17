@@ -22,8 +22,6 @@ class BillNewViewController: UIViewController, BillTabs {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.table.registerCellNib(UITableViewCell.self)
-        
         self.searchButton = UIBarButtonItem(image: UIImage(named: "Search-25")!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleSearch))
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
