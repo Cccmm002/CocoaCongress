@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 
-struct BillTableData {
+class BillTableData: NSObject, NSCoding {
     var id : String
     var title : String
     var active : Bool
@@ -20,6 +20,18 @@ struct BillTableData {
         self.title = title
         self.id = id
         self.active = active
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.title = aDecoder.decodeObject(forKey: "title") as! String
+        self.active = true
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.title, forKey: "title")
+        //aCoder.encode(boolv: self.active, forKey: "active")
     }
 }
 
@@ -33,6 +45,12 @@ class AppData {
     var legisFavData : [LegisTableData] = []
     var billFavData : [BillTableData] = []
     var comFavData : [ComTableData] = []
+    
+    let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    init() {
+        self._getFav()
+    }
     
     func existLegisData() -> Bool {
         if self.legisData.count == 0 {
@@ -61,6 +79,30 @@ class AppData {
         }
     }
     
+    func _getFav() {
+        let legis : [LegisTableData]? = NSKeyedUnarchiver.unarchiveObject(withFile: self.DocumentsDirectory.appendingPathComponent("legis").path) as? [LegisTableData]
+        if let l = legis {
+            self.legisFavData = l
+        }
+        else {
+            self.legisFavData = []
+        }
+        let bills : [BillTableData]? = NSKeyedUnarchiver.unarchiveObject(withFile: self.DocumentsDirectory.appendingPathComponent("bills").path) as? [BillTableData]
+        if let b = bills {
+            self.billFavData = b
+        }
+        else {
+            self.billFavData = []
+        }
+        let coms : [ComTableData]? = NSKeyedUnarchiver.unarchiveObject(withFile: self.DocumentsDirectory.appendingPathComponent("coms").path) as? [ComTableData]
+        if let c = coms {
+            self.comFavData = c
+        }
+        else {
+            self.comFavData = []
+        }
+    }
+    
     func _buildLegisData(json : JSON) {
         self.legisData = []
         let count = json["count"].int!
@@ -70,7 +112,8 @@ class AppData {
             let lname = json["results"][i]["last_name"].string!
             let id = json["results"][i]["bioguide_id"].string!
             let chamber = json["results"][i]["chamber"].string!
-            let data = LegisTableData(id:id, fname:fname, lname:lname, state:state, chamber:chamber)
+            let party = json["results"][i]["party"].string!
+            let data = LegisTableData(id:id, fname:fname, lname:lname, state:state, chamber:chamber, party:party)
             self.legisData.append(data)
         }
     }

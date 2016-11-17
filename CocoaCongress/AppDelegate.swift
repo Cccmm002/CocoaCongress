@@ -64,6 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        if !NSKeyedArchiver.archiveRootObject(Constants.data.legisFavData, toFile: Constants.data.DocumentsDirectory.appendingPathComponent("legis").path) {
+            print("Save legislators failed.")
+        }
+        if !NSKeyedArchiver.archiveRootObject(Constants.data.billFavData, toFile: Constants.data.DocumentsDirectory.appendingPathComponent("bills").path) {
+            print("Save bills failed.")
+        }
+        if !NSKeyedArchiver.archiveRootObject(Constants.data.comFavData, toFile: Constants.data.DocumentsDirectory.appendingPathComponent("coms").path) {
+            print("Save committees failed.")
+        }
     }
 
 

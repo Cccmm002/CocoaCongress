@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ComTableData {
+class ComTableData: NSObject, NSCoding {
     var id : String
     var title : String
     var chamber : String
@@ -17,6 +17,18 @@ struct ComTableData {
         self.id = id
         self.title = title
         self.chamber = chamber
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.title = aDecoder.decodeObject(forKey: "title") as! String
+        self.chamber = aDecoder.decodeObject(forKey: "chamber") as! String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.title, forKey: "title")
+        aCoder.encode(self.chamber, forKey: "chamber")
     }
 }
 
