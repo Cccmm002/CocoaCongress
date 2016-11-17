@@ -48,6 +48,7 @@ class ComSenateViewController: UIViewController, CommitteeTabs {
     func toggleSearch() {
         tabController!.navigationItem.titleView = self.searchController.searchBar
         self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

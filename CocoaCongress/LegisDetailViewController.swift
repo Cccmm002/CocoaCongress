@@ -84,11 +84,16 @@ class LegisDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableData.append(detailTableData(title:"First Name",content:json["personal"]["first_name"].string!,click:false))
         self.tableData.append(detailTableData(title:"Last Name",content:json["personal"]["last_name"].string!,click:false))
         self.tableData.append(detailTableData(title:"State",content:json["personal"]["state_name"].string!,click:false))
+        let chamber = ((json["personal"]["chamber"].string!)=="house" ? "House" : "Senate")
+        if chamber == "House" {
+            let dis = json["personal"]["district"].int!
+            self.tableData.append(detailTableData(title:"District",content:String(dis),click:false))
+        }
         let pty = json["personal"]["party"].string!
         self.tableData.append(detailTableData(title:"Party",content:(pty == "R" ? "Republican" : (pty == "D" ? "Democratic" : "Independent")),click:false))
         self.tableData.append(detailTableData(title:"Birth Date",content:AppData.dateTransform(from: json["personal"]["birthday"].string!),click:false))
         self.tableData.append(detailTableData(title:"Gender",content:((json["personal"]["gender"].string!)=="M" ? "Male" : "Female"),click:false))
-        self.tableData.append(detailTableData(title:"Chamber",content:((json["personal"]["chamber"].string!)=="house" ? "House" : "Senate"),click:false))
+        self.tableData.append(detailTableData(title:"Chamber",content:chamber,click:false))
         self.tableData.append(detailTableData(title:"Fax No.",content:json["personal"]["fax"].string,click:false))
         var twitter = "http://twitter.com/"
         if let tu = json["personal"]["twitter_id"].string {

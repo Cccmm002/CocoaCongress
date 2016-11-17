@@ -37,6 +37,7 @@ class FavComViewController: UIViewController {
     func toggleSearch() {
         tabController!.navigationItem.titleView = self.searchController.searchBar
         self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {

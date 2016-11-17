@@ -19,7 +19,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-xJ-JG2">
                         <constraints>
-                            <constraint firstAttribute="width" constant="112" id="dKt-DS-v6w"/>
+                            <constraint firstAttribute="width" constant="102" id="cxa-Jz-WZX"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
@@ -32,13 +32,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ryX-mz-mEv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="7DM-n7-NTu"/>
-                    <constraint firstItem="ryX-mz-mEv" firstAttribute="firstBaseline" secondItem="xwn-xJ-JG2" secondAttribute="firstBaseline" id="Hhg-vA-qnC"/>
-                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="ZNX-gs-2D8"/>
-                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="aP7-U3-Kcx"/>
-                    <constraint firstItem="ryX-mz-mEv" firstAttribute="baseline" secondItem="xwn-xJ-JG2" secondAttribute="baseline" id="gQZ-1y-cSK"/>
-                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nET-tU-aTh"/>
-                    <constraint firstItem="ryX-mz-mEv" firstAttribute="leading" secondItem="xwn-xJ-JG2" secondAttribute="trailing" constant="8" symbolic="YES" id="qqY-Yz-JKZ"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1uA-6h-FQR"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="5Wf-6s-fkL"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="baseline" secondItem="xwn-xJ-JG2" secondAttribute="baseline" id="5cW-Su-Bmc"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="WNU-4E-kKg"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="leading" secondItem="xwn-xJ-JG2" secondAttribute="trailing" constant="8" symbolic="YES" id="fIF-qs-uWP"/>
+                    <constraint firstItem="ryX-mz-mEv" firstAttribute="firstBaseline" secondItem="xwn-xJ-JG2" secondAttribute="firstBaseline" id="fT4-Ku-a2g"/>
+                    <constraint firstItem="xwn-xJ-JG2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="n0D-HT-G9v"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -16,9 +16,10 @@ class LegisTableData: NSObject, NSCoding {
     var last_name: String
     var state: String
     var party: String
+    var district: String
     var image: UIImage?
     
-    init(id: String, fname: String, lname: String, state: String, chamber: String, party: String) {
+    init(id: String, fname: String, lname: String, state: String, chamber: String, party: String, district: String) {
         self.id=id
         self.first_name=fname
         self.last_name=lname
@@ -26,6 +27,7 @@ class LegisTableData: NSObject, NSCoding {
         self.image=nil
         self.chamber=chamber
         self.party=party
+        self.district=district
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +37,7 @@ class LegisTableData: NSObject, NSCoding {
         self.last_name = aDecoder.decodeObject(forKey: "last_name") as! String
         self.state = aDecoder.decodeObject(forKey: "state") as! String
         self.party = aDecoder.decodeObject(forKey: "party") as! String
+        self.district = aDecoder.decodeObject(forKey: "District") as! String
         self.image = nil
     }
     
@@ -45,6 +48,7 @@ class LegisTableData: NSObject, NSCoding {
         aCoder.encode(self.last_name, forKey: "last_name")
         aCoder.encode(self.state, forKey: "state")
         aCoder.encode(self.party, forKey: "party")
+        aCoder.encode(self.district, forKey: "district")
     }
 
 }
@@ -79,7 +83,11 @@ class LegisTableViewCell: UITableViewCell {
             self.legis = data
             
             self.dataName.text = data.first_name + " " + data.last_name
-            self.dataState.text = data.state + "  (" + data.party + ")"
+            var dataState = data.state
+            if data.chamber == "house" {
+                dataState += " - " + data.district
+            }
+            self.dataState.text = dataState + "  (" + data.party + ")"
             
             if data.image == nil {
                 let imgUrl : String = Constants.LegImgServer + data.id + ".jpg"

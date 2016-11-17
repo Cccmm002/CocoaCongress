@@ -113,7 +113,12 @@ class AppData {
             let id = json["results"][i]["bioguide_id"].string!
             let chamber = json["results"][i]["chamber"].string!
             let party = json["results"][i]["party"].string!
-            let data = LegisTableData(id:id, fname:fname, lname:lname, state:state, chamber:chamber, party:party)
+            let _district = json["results"][i]["district"].int
+            var district = ""
+            if let d = _district {
+                district = String(d)
+            }
+            let data = LegisTableData(id:id, fname:fname, lname:lname, state:state, chamber:chamber, party:party, district:district)
             self.legisData.append(data)
         }
     }

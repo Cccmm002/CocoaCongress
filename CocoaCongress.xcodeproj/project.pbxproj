@@ -54,6 +54,7 @@
 		DEC64F9C1DDBA279001B8B9A /* LegisSubViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */; };
 		DEC64F9E1DDBA2AB001B8B9A /* LegisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */; };
 		DEC64FA01DDBA864001B8B9A /* StatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC64F9F1DDBA864001B8B9A /* StatePickerViewController.swift */; };
+		DEE1DA911DDE26D500164157 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE1DA901DDE26D500164157 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,8 @@
 		DEC64F9B1DDBA279001B8B9A /* LegisSubViews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LegisSubViews.storyboard; sourceTree = "<group>"; };
 		DEC64F9D1DDBA2AB001B8B9A /* LegisDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegisDetailViewController.swift; sourceTree = "<group>"; };
 		DEC64F9F1DDBA864001B8B9A /* StatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatePickerViewController.swift; sourceTree = "<group>"; };
+		DEE1DA901DDE26D500164157 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		DEE1DA921DDE26D500164157 /* CocoaCongress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CocoaCongress.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE1DA911DDE26D500164157 /* ExternalAccessory.framework in Frameworks */,
 				B56B600893DC7144BE0E6A48 /* Pods_CocoaCongress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +173,7 @@
 		CF1FD69F89B4456BA5E35BA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEE1DA901DDE26D500164157 /* ExternalAccessory.framework */,
 				96C3CC8F57A795B2BCE9F629 /* Pods_CocoaCongress.framework */,
 			);
 			name = Frameworks;
@@ -212,6 +217,7 @@
 		DE3BD41A1DD8EAC600402FD3 /* CocoaCongress */ = {
 			isa = PBXGroup;
 			children = (
+				DEE1DA921DDE26D500164157 /* CocoaCongress.entitlements */,
 				DE8E0A5D1DDD7542001356D0 /* FavoriteTab */,
 				DE8E0A521DDD350F001356D0 /* CommitteeTab */,
 				DE8E0A451DDD1105001356D0 /* BillTab */,
@@ -403,6 +409,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = GBQ5TPLP6V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					DE3BD42B1DD8EAC600402FD3 = {
 						CreatedOnToolsVersion = 8.0;
@@ -709,6 +720,7 @@
 			baseConfigurationReference = D6A92E67A7F7B0E4873FFA9D /* Pods-CocoaCongress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CocoaCongress/CocoaCongress.entitlements;
 				DEVELOPMENT_TEAM = GBQ5TPLP6V;
 				INFOPLIST_FILE = CocoaCongress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -723,6 +735,7 @@
 			baseConfigurationReference = 08B3074B0B0A0DCECB174696 /* Pods-CocoaCongress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CocoaCongress/CocoaCongress.entitlements;
 				DEVELOPMENT_TEAM = GBQ5TPLP6V;
 				INFOPLIST_FILE = CocoaCongress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
