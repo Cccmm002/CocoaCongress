@@ -103,4 +103,19 @@ extension FavComViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let cur = self.filteredData[indexPath.row]
+            self.filteredData.remove(at: indexPath.row)
+            let count = Constants.data.comFavData.count
+            for i in 0 ..< count {
+                if Constants.data.comFavData[i].id == cur.id {
+                    Constants.data.comFavData.remove(at: i)
+                    break
+                }
+            }
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+    }
+    
 }

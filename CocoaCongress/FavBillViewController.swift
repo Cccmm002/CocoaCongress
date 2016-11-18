@@ -105,4 +105,19 @@ extension FavBillViewController: UITableViewDataSource {
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let cur = self.filteredData[indexPath.row]
+            self.filteredData.remove(at: indexPath.row)
+            let count = Constants.data.billFavData.count
+            for i in 0 ..< count {
+                if Constants.data.billFavData[i].id == cur.id {
+                    Constants.data.billFavData.remove(at: i)
+                    break
+                }
+            }
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+    }
+    
 }

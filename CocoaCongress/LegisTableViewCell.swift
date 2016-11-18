@@ -37,7 +37,7 @@ class LegisTableData: NSObject, NSCoding {
         self.last_name = aDecoder.decodeObject(forKey: "last_name") as! String
         self.state = aDecoder.decodeObject(forKey: "state") as! String
         self.party = aDecoder.decodeObject(forKey: "party") as! String
-        self.district = aDecoder.decodeObject(forKey: "District") as! String
+        self.district = aDecoder.decodeObject(forKey: "district") as! String
         self.image = nil
     }
     
@@ -90,10 +90,7 @@ class LegisTableViewCell: UITableViewCell {
             self.dataState.text = dataState + "  (" + data.party + ")"
             
             if data.image == nil {
-                let imgUrl : String = Constants.LegImgServer + data.id + ".jpg"
-                if let checkedUrl = URL(string: imgUrl) {
-                    self.downloadImage(url: checkedUrl)
-                }
+                self.downloadImage(id: data.id)
             }
             else {
                 self.dataImage.image = data.image
@@ -101,23 +98,29 @@ class LegisTableViewCell: UITableViewCell {
         }
     }
     
-    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+    func getDataFromUrl(url: URL, id: String, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?, _ id: String) -> Void) {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) in
-            completion(data, response, error)
+            completion(data, response, error, id)
             }.resume()
     }
     
-    func downloadImage(url: URL) {
-        getDataFromUrl(url: url) { (data, response, error)  in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { () -> Void in
-                self.dataImage.frame = CGRect(x:0, y:0, width:42, height:50)
-                self.dataImage.contentMode = .scaleToFill
-                self.legis!.image = UIImage(data: data)
-                self.dataImage.image = self.legis!.image
+    func downloadImage(id: String) {
+        let imgUrl : String = Constants.LegImgServer + id + ".jpg"
+        if let checkedUrl = URL(string: imgUrl) {
+            getDataFromUrl(url: checkedUrl, id: id) { (data, response, error, id)  in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async { () -> Void in
+                    if id == self.legis!.id {
+                        self.dataImage.frame = CGRect(x:0, y:0, width:42, height:50)
+                        self.dataImage.contentMode = .scaleToFill
+                        self.legis!.image = UIImage(data: data)
+                        self.dataImage.image = self.legis!.image
+                    }
+                }
             }
         }
+        
     }
     
 }

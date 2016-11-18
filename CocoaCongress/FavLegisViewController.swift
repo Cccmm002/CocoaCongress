@@ -102,5 +102,20 @@ extension FavLegisViewController: UITableViewDataSource {
         cell.setData(data)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let cur = self.filteredData[indexPath.row]
+            self.filteredData.remove(at: indexPath.row)
+            let count = Constants.data.legisFavData.count
+            for i in 0 ..< count {
+                if Constants.data.legisFavData[i].id == cur.id {
+                    Constants.data.legisFavData.remove(at: i)
+                    break
+                }
+            }
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+    }
 
 }

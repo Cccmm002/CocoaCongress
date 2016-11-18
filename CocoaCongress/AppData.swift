@@ -114,9 +114,9 @@ class AppData {
             let chamber = json["results"][i]["chamber"].string!
             let party = json["results"][i]["party"].string!
             let _district = json["results"][i]["district"].int
-            var district = ""
-            if let d = _district {
-                district = String(d)
+            var district = "0"
+            if _district != nil {
+                district = String(_district!)
             }
             let data = LegisTableData(id:id, fname:fname, lname:lname, state:state, chamber:chamber, party:party, district:district)
             self.legisData.append(data)
