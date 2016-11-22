@@ -22,6 +22,8 @@ class BillNewViewController: UIViewController, BillTabs {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.table.registerCellNib(BillTableViewCell.self)
+        
         self.searchButton = UIBarButtonItem(image: UIImage(named: "Search-25")!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleSearch))
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
@@ -81,7 +83,7 @@ extension BillNewViewController : UISearchResultsUpdating, UISearchControllerDel
 
 extension BillNewViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return BillTableViewCell.height()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,14 +105,9 @@ extension BillNewViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell_bill_new")
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell_bill_new")
-        }
-        cell!.textLabel?.text = filteredData[indexPath.row].title
-        cell!.textLabel?.numberOfLines = 0
-        cell!.textLabel?.lineBreakMode = .byWordWrapping
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: BillTableViewCell.identifier, for: indexPath) as! BillTableViewCell
+        cell.setData(data: filteredData[indexPath.row])
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

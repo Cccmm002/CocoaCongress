@@ -34,6 +34,8 @@ class LeftMenuViewController: UIViewController, LeftMenuProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerCellNib(LeftMenuTableViewCell.self)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let legislatorTabBarController = storyboard.instantiateViewController(withIdentifier: "LegislatorTabBarController") as! LegislatorTabBarController
@@ -103,8 +105,7 @@ extension LeftMenuViewController : UITableViewDelegate {
         if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
             case .legis, .bill, .com, .fav, .about:
-                //return BaseTableViewCell.height()
-                return 48
+                return LeftMenuTableViewCell.height()
             }
         }
         return 0
@@ -131,14 +132,9 @@ extension LeftMenuViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let menu = LeftMenu(rawValue: indexPath.row) {
-            switch menu {
-            case .legis, .bill, .com, .fav, .about:
-                let cell = UITableViewCell()
-                cell.textLabel?.text = menus[indexPath.row]
-                cell.backgroundColor = UIColor(red: 226.0, green: 235.0, blue: 221.0, alpha: 1.0)
-                cell.textLabel?.textColor = UIColor(hex: "9E9E9E")
-                return cell
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: LeftMenuTableViewCell.identifier, for: indexPath) as! LeftMenuTableViewCell
+            cell.setData(menu: menu)
+            return cell
         }
         return UITableViewCell()
     }

@@ -11,30 +11,6 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 
-class BillTableData: NSObject, NSCoding {
-    var id : String
-    var title : String
-    var active : Bool
-    
-    init(id: String, title: String, active: Bool) {
-        self.title = title
-        self.id = id
-        self.active = active
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.id = aDecoder.decodeObject(forKey: "id") as! String
-        self.title = aDecoder.decodeObject(forKey: "title") as! String
-        self.active = true
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.id, forKey: "id")
-        aCoder.encode(self.title, forKey: "title")
-        //aCoder.encode(boolv: self.active, forKey: "active")
-    }
-}
-
 class AppData {
     var state_list : [String] = []
     
@@ -130,7 +106,8 @@ class AppData {
             let id = json["results"][i]["bill_id"].string!
             let title = json["results"][i]["official_title"].string!
             let active = json["results"][i]["active"].bool!
-            let data = BillTableData(id: id, title: title, active: active)
+            let intro = json["results"][i]["introduced_on"].string!
+            let data = BillTableData(id: id, title: title, active: active, introduced: intro)
             self.billData.append(data)
         }
     }

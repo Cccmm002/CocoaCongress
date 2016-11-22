@@ -79,10 +79,12 @@ class LegisTableViewCell: UITableViewCell {
     }
     
     func setData(_ data: Any?) {
+        self.dataImage.image = nil
+        
         if let data = data as? LegisTableData {
             self.legis = data
             
-            self.dataName.text = data.first_name + " " + data.last_name
+            self.dataName.text = data.last_name + ", " + data.first_name
             var dataState = data.state
             if data.chamber == "house" {
                 dataState += " - " + data.district
