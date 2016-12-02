@@ -83,5 +83,6 @@ fastlane/test_output
 *.xccheckout
 *.xcscmblueprint
 
-CocoaCongress/Assets.xcassets/myself.imageset/*.jpeg
+CocoaCongress/Assets.xcassets/myself.imageset/photo.jpeg
+
 
