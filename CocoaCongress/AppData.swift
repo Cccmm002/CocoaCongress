@@ -99,6 +99,17 @@ class AppData {
         }
     }
     
+    func _billSorter(this:BillTableData, that:BillTableData) -> Bool {
+        let dateSource = DateFormatter()
+        dateSource.locale = Locale.current
+        dateSource.dateFormat = "yyyy-MM-dd"
+        
+        let a = dateSource.date(from: this.introduced)
+        let b = dateSource.date(from: that.introduced)
+        
+        return a! > b!
+    }
+    
     func _buildBillData(json : JSON) {
         self.billData = []
         let count = json["count"].int!
@@ -110,6 +121,7 @@ class AppData {
             let data = BillTableData(id: id, title: title, active: active, introduced: intro)
             self.billData.append(data)
         }
+        self.billData.sort(by: _billSorter)
     }
     
     func _buildComData(json : JSON) {

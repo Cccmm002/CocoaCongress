@@ -22,6 +22,8 @@ class FavBillViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.table.registerCellNib(BillTableViewCell.self)
+        
         self.searchButton = UIBarButtonItem(image: UIImage(named: "Search-25")!, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleSearch))
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
@@ -30,6 +32,7 @@ class FavBillViewController: UIViewController {
         self.searchController.delegate = self
         
         self.filteredData = Constants.data.billFavData
+        self.filteredData.sort(by: Constants.data._billSorter)
     }
     
     func toggleSearch() {
@@ -53,6 +56,7 @@ class FavBillViewController: UIViewController {
     
     func resetData() {
         self.filteredData = Constants.data.billFavData
+        self.filteredData.sort(by: Constants.data._billSorter)
         self.table.reloadData()
     }
     
@@ -66,6 +70,7 @@ extension FavBillViewController : UISearchResultsUpdating, UISearchControllerDel
             return
         }
         self.filteredData = Constants.data.billFavData.filter { ($0.active == false) && $0.title.lowercased().contains(searchText) }
+        self.filteredData.sort(by: Constants.data._billSorter)
         self.table.reloadData()
     }
     
@@ -78,7 +83,7 @@ extension FavBillViewController : UISearchResultsUpdating, UISearchControllerDel
 
 extension FavBillViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return BillTableViewCell.height()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,14 +100,9 @@ extension FavBillViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell_bill_fav")
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell_bill_fav")
-        }
-        cell!.textLabel?.text = filteredData[indexPath.row].title
-        cell!.textLabel?.numberOfLines = 0
-        cell!.textLabel?.lineBreakMode = .byWordWrapping
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: BillTableViewCell.identifier, for: indexPath) as! BillTableViewCell
+        cell.setData(data: filteredData[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){

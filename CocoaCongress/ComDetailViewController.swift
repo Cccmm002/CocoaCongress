@@ -71,7 +71,7 @@ class ComDetailViewController: UIViewController, UITableViewDataSource, UITableV
     func parseData(json: JSON) {
         self.tableData = []
         self.tableData.append(detailTableData(title:"ID",content:json["committee_id"].string,click:false))
-        self.tableData.append(detailTableData(title:"Parent ID",content:json["parent_id"].string,click:false))
+        self.tableData.append(detailTableData(title:"Parent ID",content:json["parent_committee_id"].string,click:false))
         let chmb = json["chamber"].string!
         self.tableData.append(detailTableData(title:"Chamber",content:(chmb == "house" ? "House" : (chmb == "senate" ? "Senate" : "Joint")),click:false))
         self.tableData.append(detailTableData(title:"Office",content:json["office"].string,click:false))

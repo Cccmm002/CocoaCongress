@@ -78,7 +78,8 @@ class LegStateViewController: UIViewController, LegislatorTabs {
         self.dic_keys.sort()
         let kc = self.dic.count
         for i in 0 ..< kc {
-            self.dic[self.dic_keys[i]]?.sort(by: legisSort)
+            //self.dic[self.dic_keys[i]]?.sort(by: legisSort)
+            self.dic[self.dic_keys[i]]?.sort { $0.last_name < $1.last_name }
         }
     }
     

@@ -32,6 +32,7 @@ class FavLegisViewController: UIViewController {
         self.searchController.delegate = self
         
         self.filteredData = Constants.data.legisFavData
+        self.filteredData.sort { $0.last_name < $1.last_name }
     }
     
     func toggleSearch() {
@@ -55,6 +56,7 @@ class FavLegisViewController: UIViewController {
     
     func resetData() {
         self.filteredData = Constants.data.legisFavData
+        self.filteredData.sort { $0.last_name < $1.last_name }
         self.table.reloadData()
     }
     
@@ -68,6 +70,7 @@ extension FavLegisViewController : UISearchResultsUpdating, UISearchControllerDe
             return
         }
         self.filteredData = Constants.data.legisFavData.filter { $0.first_name.lowercased().contains(searchText) || $0.last_name.lowercased().contains(searchText) }
+        self.filteredData.sort { $0.last_name < $1.last_name }
         self.table.reloadData()
     }
     
